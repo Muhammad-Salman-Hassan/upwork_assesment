@@ -1,68 +1,184 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { usePageData } from "../../hooks/usePageData";
-import Sidebar from "../../components/Sidebar";
-import SearchBar from "../../components/SearchBar";
+import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
+import { fetchNavigations } from "../../store/slices/navSlice";
+import { pageService } from "../../services/pageService";
+import Layout from "../../components/Layout";
 import RightBar from "../../components/RightBar";
 import Why from "./Why";
-import type { Language } from "../../types";
+import type { Language, PageNode } from "../../types";
+import type { NavItem } from "../../types/nav";
+
+function findNavItem(items: NavItem[], id: number): NavItem | undefined {
+  for (const item of items) {
+    if (item.id === id) return item;
+    if (item.children.length > 0) {
+      const found = findNavItem(item.children, id);
+      if (found) return found;
+    }
+  }
+  return undefined;
+}
+
+function getPagePath(navItem: NavItem): string {
+  const href = navItem.href.split("#")[0];
+  if (navItem.children.length === 0) return href;
+  const parts = href.split("/").filter(Boolean);
+  return parts.length > 1 ? `/${parts.slice(0, -1).join("/")}` : `/${parts[0]}`;
+}
 
 export default function Home() {
-  const { pageData, language, setLanguage, updateTextField, updateImageSrc, saveData } =
-    usePageData();
-  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+  const { navId } = useParams<{ navId: string }>();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const navItems = useAppSelector((state) => state.nav.items);
+  const { pageData, language, fetchPage, setLanguage, updateTextField, updateImageSrc } = usePageData();
 
-  const activeSection = pageData.sections[activeSectionIndex];
+  // Active sub-page selected from RightBar
+  const [activePageId, setActivePageId] = useState<number | null>(null);
+  // Active tab within the sub-page (if sub-page has nested pages)
+  const [activeSubPageId, setActiveSubPageId] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (navItems.length === 0) dispatch(fetchNavigations());
+  }, [dispatch, navItems.length]);
+
+  useEffect(() => {
+    if (!navId || navItems.length === 0) return;
+    const navItem = findNavItem(navItems, Number(navId));
+    if (navItem) fetchPage(getPagePath(navItem));
+  }, [navId, navItems, fetchPage]);
+
+  // Auto-select first sub-page when pageData loads
+  useEffect(() => {
+    if (pageData.pages && pageData.pages.length > 0) {
+      setActivePageId(pageData.pages[0].id ?? null);
+      setActiveSubPageId(null);
+    } else {
+      setActivePageId(null);
+      setActiveSubPageId(null);
+    }
+  }, [pageData.id]);
+
+  // Derive active objects from Redux state (always fresh)
+  const activePage = pageData.pages?.find((p) => p.id === activePageId) ?? null;
+
+  // Auto-select first tab when active page changes
+  useEffect(() => {
+    if (activePage?.pages && activePage.pages.length > 0) {
+      setActiveSubPageId(activePage.pages[0].id ?? null);
+    } else {
+      setActiveSubPageId(null);
+    }
+  }, [activePageId]);
+
+  const activeSubPage = activePage?.pages?.find((p) => p.id === activeSubPageId) ?? null;
+
+  // Sections to render: sub-page tab → sub-page → root page
+  const sections: PageNode[] =
+    activeSubPage?.sections ?? activePage?.sections ?? pageData.sections ?? [];
+
+  const currentTitle =
+    activeSubPage?.title_en ??
+    activePage?.title_en ??
+    pageData.title_en ??
+    pageData.title ??
+    "";
+
+  // RightBar pages: show pageData.pages if available, else empty
+  const sidebarPages = pageData.pages ?? [];
+
+  async function handleSave() {
+    const activeTarget = activeSubPage ?? activePage ?? pageData;
+    console.log("Active page being saved:", activeTarget);
+    if (pageData.id) {
+      await pageService.updatePage(pageData.id, pageData);
+    }
+  }
+
+  const rightBar = (
+    <RightBar
+      title={pageData.title_en ?? pageData.title ?? ""}
+      pages={sidebarPages}
+      activePageId={activePageId}
+      onPageSelect={(page) => {
+        setActivePageId(page.id ?? null);
+        setActiveSubPageId(null);
+      }}
+      onSave={handleSave}
+    />
+  );
 
   return (
-    <div className="flex h-screen bg-gray-100 overflow-hidden">
-      <Sidebar />
-
-      <div className="flex flex-col flex-1 overflow-hidden">
-        <div className="p-4 bg-white border-b border-gray-200">
-          <SearchBar />
-        </div>
-
-        <div className="flex flex-1 overflow-hidden">
-          <main className="flex-1 overflow-y-auto p-6 flex flex-col">
-            <div className="mb-3">
-              <span className="text-sm text-blue-500 font-medium">{pageData.title_en}</span>
-            </div>
-
-            <div className="flex gap-2 mb-5 border-b border-gray-200">
-              {(["en", "ar"] as Language[]).map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => setLanguage(lang)}
-                  className={`px-4 py-2 text-sm font-medium transition-colors ${
-                    language === lang
-                      ? "text-blue-500 border-b-2 border-blue-500"
-                      : "text-gray-400 hover:text-gray-600"
-                  }`}
-                >
-                  {lang === "en" ? "English" : "Arabic"}
-                </button>
-              ))}
-            </div>
-
-            {activeSection && (
-              <Why
-                sectionIndex={activeSectionIndex}
-                section={activeSection}
-                language={language}
-                onTextChange={updateTextField}
-                onImageChange={updateImageSrc}
-                onSave={saveData}
-              />
-            )}
-          </main>
-
-          <RightBar
-            pageData={pageData}
-            activeSectionIndex={activeSectionIndex}
-            onSectionSelect={setActiveSectionIndex}
-          />
-        </div>
+    <Layout rightBar={rightBar}>
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-sm text-blue-500 font-medium">{currentTitle}</span>
+        <button
+          onClick={() => navigate(-1)}
+          className="text-xs px-3 py-1.5 rounded border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors"
+        >
+          Back
+        </button>
       </div>
-    </div>
+
+      {/* Language tabs */}
+      <div className="flex gap-2 mb-4 border-b border-gray-200">
+        {(["en", "ar"] as Language[]).map((lang) => (
+          <button
+            key={lang}
+            onClick={() => setLanguage(lang)}
+            className={`px-4 py-2 text-sm font-medium transition-colors ${
+              language === lang
+                ? "text-blue-500 border-b-2 border-blue-500"
+                : "text-gray-400 hover:text-gray-600"
+            }`}
+          >
+            {lang === "en" ? "English" : "Arabic"}
+          </button>
+        ))}
+      </div>
+
+      {/* Sub-page tabs (shown when active sub-page has nested pages) */}
+      {activePage?.pages && activePage.pages.length > 0 && (
+        <div className="flex gap-1 flex-wrap mb-5 p-1 bg-gray-100 rounded-lg">
+          {activePage.pages.map((subPage) => (
+            <button
+              key={subPage.id}
+              onClick={() => setActiveSubPageId(subPage.id ?? null)}
+              className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                activeSubPageId === subPage.id
+                  ? "bg-white text-blue-600 shadow-sm"
+                  : "text-gray-500 hover:text-gray-700"
+              }`}
+            >
+              {subPage.title_en ?? subPage.title}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Sections */}
+      {sections.length > 0 ? (
+        sections.map((section, index) => (
+          <Why
+            key={section.id ?? `s-${index}`}
+            sectionIndex={index}
+            section={section}
+            language={language}
+            onTextChange={(si, path, val) =>
+              updateTextField(si, path, val, activePage?.id, activeSubPage?.id)
+            }
+            onImageChange={(si, path, src) =>
+              updateImageSrc(si, path, src, activePage?.id, activeSubPage?.id)
+            }
+          />
+        ))
+      ) : (
+        <div className="text-sm text-gray-400 mt-8 text-center">
+          Select a sub-page from the right sidebar to edit its content.
+        </div>
+      )}
+    </Layout>
   );
 }

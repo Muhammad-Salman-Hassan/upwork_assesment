@@ -1,6 +1,6 @@
 export type Language = "en" | "ar";
 
-export type NodeType = "frame" | "text" | "textarea" | "image";
+export type NodeType = "frame" | "text" | "textarea" | "image" | "slider" | "slide";
 
 export interface Styles {
   lg?: Record<string, unknown>;
@@ -8,44 +8,69 @@ export interface Styles {
 }
 
 export interface TextParams {
-  content_en: string;
-  content_ar: string;
+  content_en?: string;
+  content_ar?: string;
+  content?: string;
+  link?: string;
+  [key: string]: unknown;
 }
 
 export interface ImageParams {
-  src_en: string;
-  src_ar: string;
+  src_en?: string;
+  src_ar?: string;
+  src?: string;
+  alt?: string;
+  [key: string]: unknown;
 }
 
 export interface FrameParams {
   children: PageNode[];
+  [key: string]: unknown;
 }
 
-export interface TextNode {
+export interface SliderParams {
+  config?: Record<string, unknown>;
+  slides?: PageNode[];
+  [key: string]: unknown;
+}
+
+interface BaseNode {
+  id?: number;
+  key?: string;
+  styles: Styles;
+}
+
+export interface TextNode extends BaseNode {
   type: "text";
-  styles: Styles;
   params: TextParams;
 }
 
-export interface TextareaNode {
+export interface TextareaNode extends BaseNode {
   type: "textarea";
-  styles: Styles;
   params: TextParams;
 }
 
-export interface ImageNode {
+export interface ImageNode extends BaseNode {
   type: "image";
-  styles: Styles;
   params: ImageParams;
 }
 
-export interface FrameNode {
+export interface FrameNode extends BaseNode {
   type: "frame";
-  styles: Styles;
   params: FrameParams;
 }
 
-export type PageNode = TextNode | TextareaNode | ImageNode | FrameNode;
+export interface SliderNode extends BaseNode {
+  type: "slider";
+  params: SliderParams;
+}
+
+export interface SlideNode extends BaseNode {
+  type: "slide";
+  params: ImageParams;
+}
+
+export type PageNode = TextNode | TextareaNode | ImageNode | FrameNode | SliderNode | SlideNode;
 
 export interface PageStyles {
   lg?: Record<string, unknown>;
@@ -53,13 +78,16 @@ export interface PageStyles {
 }
 
 export interface PageData {
+  id?: number;
   slug: string;
   path: string;
   type: string;
-  title_en: string;
-  title_ar: string;
-  styles: PageStyles;
-  sections: PageNode[];
+  title?: string;
+  title_en?: string;
+  title_ar?: string;
+  styles?: PageStyles;
+  sections?: PageNode[];
+  pages?: PageData[];
 }
 
 export interface EditableField {

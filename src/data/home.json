@@ -1,0 +1,2433 @@
+[
+    {
+        "id": 30,
+        "order": 0,
+        "slug": "services",
+        "path": "/services",
+        "title_ar": "خدمات الشركة",
+        "title_en": "Our Services",
+        "type": "route",
+        "parent_id": 0,
+        "status": "",
+        "meta": {},
+        "pages": [
+            {
+                "id": 31,
+                "order": 0,
+                "slug": "cash-loan",
+                "path": "/services/cash-loan",
+                "title_ar": "القروض النقدية ",
+                "title_en": "Cash Loans",
+                "type": "content",
+                "parent_id": 30,
+                "status": "",
+                "meta": {
+                    "preview": "https://cfc.bits.com.kw:8443/assets/cash-loan-service.jpg",
+                    "products": "20",
+                    "tags": "services"
+                },
+                "styles": {
+                    "lg": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    },
+                    "sm": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    }
+                },
+                "sections": [
+                    {
+                        "id": 1154,
+                        "key": "",
+                        "type": "frame",
+                        "styles": {
+                            "lg": {
+                                "background": "secondary",
+                                "gap": 6,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "horizontal",
+                                "padding": "px-12 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            },
+                            "sm": {
+                                "background": "secondary",
+                                "gap": 4,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "vertical",
+                                "padding": "px-4 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            }
+                        },
+                        "params": {
+                            "children": [
+                                {
+                                    "id": 1155,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "70"
+                                        },
+                                        "sm": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1156,
+                                                "key": "",
+                                                "type": "frame",
+                                                "styles": {
+                                                    "lg": {
+                                                        "gap": 6
+                                                    },
+                                                    "sm": {
+                                                        "gap": 2
+                                                    }
+                                                },
+                                                "params": {
+                                                    "children": [
+                                                        {
+                                                            "id": 1157,
+                                                            "key": "offer-title",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "القروض النقدية: ",
+                                                                "content_en": "Cash Loans:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1158,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تتيح التسهيلات لعملائها الحصول على قروض نقدية تصل إلى 25,000 دينار كويتي أو 25 ضعف الراتب (أيهما أقل) لتمويل احتياجاتهم من السلع الاستهلاكية. ويمكن تقديم طلبات القروض النقدية عبر القنوات التالية:\r\n• الموقع الإلكتروني  \r\n • تطبيق الهواتف الذكية \r\n • فروع الشركة",
+                                                                "content_en": "At CFC, customers can obtain cash loans of up to KD 25,000 or 25 times the salary (whichever is less) to finance their consumer goods.  \r\n\r\nCash loan applications can be submitted through the following channels: \r\n\r\n  • Website. \r\n  • Smartphone application. \r\n  • CFC branches. "
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1159,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "طلبات التقديم: ",
+                                                                "content_en": "Application requirements:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1160,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • البطاقة المدنية \r\n • شهادة راتب حديثة \r\n • جواز سفر لغير الكويتيين \r\n",
+                                                                "content_en": " • Civil ID.\r\n • Recent salary certificate.\r\n• Passport for non-Kuwaitis."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1161,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "شروط عامة: ",
+                                                                "content_en": "Terms and conditions:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1162,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • الحد الأدنى للراتب هو 300 \r\n  • يجب ألا تتجاوز الالتزامات الشهرية الإجمالية للعميل 40٪ من صافي الراتب و30٪ في حالة المتقاعدين  \r\n • يجب ألا يتجاوز مبلغ القرض 25 ضعف الراتب أو خمسة وعشرون ألف دينار كويتي أيهما أقل  \r\n• لا تتجاوز فترة التمويل 60 شهرًا. ",
+                                                                "content_en": " • Minimum salary of KD 300.\r\n  • The client’s total monthly commitments should not exceed 40% of the net salary, or 30% for retirees.\r\n  • The loan amount should not exceed 25 times the salary or KD 25,000, whichever is lower.\r\n  • The financing period should not exceed 60 months."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1163,
+                                                            "key": "",
+                                                            "type": "button",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "20"
+                                                                },
+                                                                "sm": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "100"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "cta": {
+                                                                    "label_ar": "احسب",
+                                                                    "label_en": "Calculate",
+                                                                    "link_ar": "ar/calculate/20",
+                                                                    "link_en": "/calculate/20"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": 1164,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "30"
+                                        },
+                                        "sm": {
+                                            "align": "center",
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1165,
+                                                "key": "offer-image",
+                                                "type": "image",
+                                                "styles": {
+                                                    "lg": {
+                                                        "height": " min-h-[300px]   ",
+                                                        "radius": "2xl",
+                                                        "width": " min-w-[300px]  "
+                                                    },
+                                                    "sm": {
+                                                        "height": " max-h-[470px] ",
+                                                        "radius": "2xl",
+                                                        "width": " max-w-[500px] "
+                                                    }
+                                                },
+                                                "params": {
+                                                    "src_ar": "/assets/cash-loan-service.jpg",
+                                                    "src_en": "/assets/cash-loan-service.jpg"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 32,
+                "order": 0,
+                "slug": "auto-loan",
+                "path": "/services/auto-loan",
+                "title_ar": " تمويل السيارات",
+                "title_en": "Auto Loans",
+                "type": "content",
+                "parent_id": 30,
+                "status": "",
+                "meta": {
+                    "preview": "https://cfc.bits.com.kw:8443/assets/auto-loan-service.jpg",
+                    "products": "21",
+                    "tags": "services"
+                },
+                "styles": {
+                    "lg": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    },
+                    "sm": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    }
+                },
+                "sections": [
+                    {
+                        "id": 1166,
+                        "key": "",
+                        "type": "frame",
+                        "styles": {
+                            "lg": {
+                                "background": "secondary",
+                                "gap": 6,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "horizontal",
+                                "padding": "px-12 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            },
+                            "sm": {
+                                "background": "secondary",
+                                "gap": 4,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "vertical",
+                                "padding": "px-4 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            }
+                        },
+                        "params": {
+                            "children": [
+                                {
+                                    "id": 1167,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "70"
+                                        },
+                                        "sm": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1168,
+                                                "key": "",
+                                                "type": "frame",
+                                                "styles": {
+                                                    "lg": {
+                                                        "gap": 6
+                                                    },
+                                                    "sm": {
+                                                        "gap": 2
+                                                    }
+                                                },
+                                                "params": {
+                                                    "children": [
+                                                        {
+                                                            "id": 1169,
+                                                            "key": "offer-title",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " تمويل السيارات:",
+                                                                "content_en": "Auto Financing:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1170,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تتيح شركة التسهيلات لعملائها امكانية تمويل سيارتهم الجديدة أو المستعملة من الوكالات أو مكاتب السيارات أو الأفراد وبحد أقصى 25,000 دينار كويتي أو 25 ضعف الراتب (أيهما أقل)، ولمدة تصل إلى 60 شهر، ويمكن تقديم طلبات التمويل من خلال القنوات التالية: \r\n\r\n • الموقع الإلكتروني \r\n • تطبيق الهواتف الذكية \r\n • فروع الشركة \r\n• موظفينا في معارض وكالات السيارات \r\n• موظفينا في مكاتب السيارات المستعملة ",
+                                                                "content_en": "At CFC, customers can finance the purchase of a new or used cars from any source, with a financing limit of KD 25,000 or 25 times the salary (whichever is less), over a period of up to 60 months.\r\n\r\nAuto financing can be submitted through the following channels:\r\n\r\n• Website.\r\n• Smartphone application.\r\n• CFC branches.\r\n• CFC representatives at car showrooms.\r\n• CFC representatives at used car outlets."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1171,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "طلبات التقديم: ",
+                                                                "content_en": "Application requirements:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1172,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • البطاقة المدنية \r\n• شهادة راتب حديثة \r\n • جواز سفر لغير الكويتيين \r\n ",
+                                                                "content_en": " • Civil ID.\r\n • Recent salary certificate.\r\n • Passport for non-Kuwaitis."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1173,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "شروط عامة: ",
+                                                                "content_en": "Terms and conditions:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1174,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "• الحد الأدنى للراتب هو 250  \r\n • يجب ألا تتجاوز الالتزامات الشهرية الإجمالية للعميل 40٪ من صافي الراتب و30٪ في حالة المتقاعدين  \r\n • يجب ألا يتجاوز مبلغ القرض 25 ضعف الراتب أو خمسة وعشرون ألف دينار كويتي أيهما أقل \r\n• لا تتجاوز فترة التمويل 60 شهرًا ",
+                                                                "content_en": " • Minimum salary of KD 250.\r\n • The client’s total monthly commitments should not exceed 40% of the net salary, or 30% for retirees.\r\n  • The loan amount should not exceed 25 times the salary or KD 25,000, whichever is lower.\r\n  • The financing period should not exceed 60 months."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1175,
+                                                            "key": "",
+                                                            "type": "button",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "20"
+                                                                },
+                                                                "sm": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "100"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "cta": {
+                                                                    "label_ar": "احسب",
+                                                                    "label_en": "Calculate",
+                                                                    "link_ar": "ar/calculate/21",
+                                                                    "link_en": "/calculate/21"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": 1176,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "30"
+                                        },
+                                        "sm": {
+                                            "align": "center",
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1177,
+                                                "key": "offer-image",
+                                                "type": "image",
+                                                "styles": {
+                                                    "lg": {
+                                                        "height": " min-h-[300px]   ",
+                                                        "radius": "2xl",
+                                                        "width": " min-w-[300px]  "
+                                                    },
+                                                    "sm": {
+                                                        "height": " max-h-[470px] ",
+                                                        "radius": "2xl",
+                                                        "width": " max-w-[500px] "
+                                                    }
+                                                },
+                                                "params": {
+                                                    "src_ar": "/assets/auto-loan-service.jpg",
+                                                    "src_en": "/assets/auto-loan-service.jpg"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 33,
+                "order": 0,
+                "slug": "house-loan",
+                "path": "/services/house-loan",
+                "title_ar": " القروض الاسكانية",
+                "title_en": "Housing Loans",
+                "type": "content",
+                "parent_id": 30,
+                "status": "",
+                "meta": {
+                    "preview": "https://cfc.bits.com.kw:8443/assets/housing-offer-en.jpg",
+                    "products": "25",
+                    "tags": "services"
+                },
+                "styles": {
+                    "lg": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    },
+                    "sm": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    }
+                },
+                "sections": [
+                    {
+                        "id": 1178,
+                        "key": "",
+                        "type": "frame",
+                        "styles": {
+                            "lg": {
+                                "background": "secondary",
+                                "gap": 6,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "horizontal",
+                                "padding": "px-12 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            },
+                            "sm": {
+                                "background": "secondary",
+                                "gap": 4,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "vertical",
+                                "padding": "px-4 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            }
+                        },
+                        "params": {
+                            "children": [
+                                {
+                                    "id": 1179,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "70"
+                                        },
+                                        "sm": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1180,
+                                                "key": "",
+                                                "type": "frame",
+                                                "styles": {
+                                                    "lg": {
+                                                        "gap": 4
+                                                    },
+                                                    "sm": {
+                                                        "gap": 2
+                                                    }
+                                                },
+                                                "params": {
+                                                    "children": [
+                                                        {
+                                                            "id": 1181,
+                                                            "key": "offer-title",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "القروض الاسكانية:",
+                                                                "content_en": "Housing Loans:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1182,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تقدم التسهيلات قروض اسكانية لتمويل شراء عقار جديد أو شراء مواد البناء لتجديد العقارات وذلك بحد أقصى للتمويل يصل إلى 70,000 دينار كويتي، لمدة تمويل تصل إلى 84 شهر.  \r\n\r\nيمكن تقديم طلبات القروض الاسكانية عبر القنوات التالية: \r\n\r\n • الموقع الإلكتروني \r\n • تطبيق الهواتف الذكية \r\n• فروع الشركة \r\n ",
+                                                                "content_en": "CFC provides housing loans to finance the purchase of a new property or building materials for property renovation, with a maximum financing limit of KD 70,000 and a financing period of up to 84 months. Housing loan applications can be submitted through the following channels: \r\n\r\n  • Website. \r\n  • Smartphone application. \r\n  • CFC branches. "
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1183,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "طلبات التقديم: ",
+                                                                "content_en": "Application requirements:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1184,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • البطاقة المدنية \r\n • شهادة راتب حديثة \r\n  ",
+                                                                "content_en": " • Civil ID.\r\n • Recent salary certificate."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1185,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "شروط عامة: ",
+                                                                "content_en": "Terms and conditions:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1186,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • الحد الأدنى للراتب هو 300 \r\n • يجب ألا تتجاوز الالتزامات الشهرية الإجمالية للعميل 40٪ من صافي الراتب و30٪ في حالة المتقاعدين \r\n • لا تتجاوز فترة السداد 84 شهرًا",
+                                                                "content_en": " • Minimum salary of KD 300.\r\n • The client’s total monthly commitments should not exceed 40% of the net salary, or 30% for retirees.\r\n  • The financing period should not exceed 84 months."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1187,
+                                                            "key": "",
+                                                            "type": "button",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "20"
+                                                                },
+                                                                "sm": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "100"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "cta": {
+                                                                    "label_ar": "احسب",
+                                                                    "label_en": "Calculate",
+                                                                    "link_ar": "ar/calculate/25",
+                                                                    "link_en": "/calculate/25"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": 1188,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "30"
+                                        },
+                                        "sm": {
+                                            "align": "center",
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1189,
+                                                "key": "offer-image",
+                                                "type": "image",
+                                                "styles": {
+                                                    "lg": {
+                                                        "height": " min-h-[300px]   ",
+                                                        "radius": "2xl",
+                                                        "width": " min-w-[300px]  "
+                                                    },
+                                                    "sm": {
+                                                        "height": " max-h-[470px] ",
+                                                        "radius": "2xl",
+                                                        "width": " max-w-[500px] "
+                                                    }
+                                                },
+                                                "params": {
+                                                    "src_ar": "/assets/housing-loan-service.jpg",
+                                                    "src_en": "/assets/housing-loan-service.jpg"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 34,
+                "order": 0,
+                "slug": "education-loan",
+                "path": "/services/education-loan",
+                "title_ar": " تمويل المصاريف الدراسية",
+                "title_en": "Education Loans",
+                "type": "content",
+                "parent_id": 30,
+                "status": "",
+                "meta": {
+                    "preview": "https://cfc.bits.com.kw:8443/assets/education-loan-service.jpg",
+                    "products": "28",
+                    "tags": "services"
+                },
+                "styles": {
+                    "lg": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    },
+                    "sm": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    }
+                },
+                "sections": [
+                    {
+                        "id": 1190,
+                        "key": "",
+                        "type": "frame",
+                        "styles": {
+                            "lg": {
+                                "background": "secondary",
+                                "gap": 6,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "horizontal",
+                                "padding": "px-12 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            },
+                            "sm": {
+                                "background": "secondary",
+                                "gap": 4,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "vertical",
+                                "padding": "px-4 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            }
+                        },
+                        "params": {
+                            "children": [
+                                {
+                                    "id": 1191,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "70"
+                                        },
+                                        "sm": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1192,
+                                                "key": "",
+                                                "type": "frame",
+                                                "styles": {
+                                                    "lg": {
+                                                        "gap": 4
+                                                    },
+                                                    "sm": {
+                                                        "gap": 2
+                                                    }
+                                                },
+                                                "params": {
+                                                    "children": [
+                                                        {
+                                                            "id": 1193,
+                                                            "key": "offer-title",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تمويل المصاريف الدراسية:",
+                                                                "content_en": "Education Loans:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1194,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تتيح التسهيلات لعملائها الحصول على قروض تعليمية تصل إلى 25,000 دينار كويتي أو 25 ضعف الراتب (أيهما أقل) لتمويل مصاريف أبنائهم الدراسية للمدارس والجامعات داخل دولة الكويت. \r\nويمكن تقديم طلبات التمويل عبر القنوات التالية:\r\n\r\n\t • الموقع الإلكتروني\r\n\t • تطبيق الهواتف الذكية \r\n\t• فروع الشركة\r\n",
+                                                                "content_en": "At CFC, customers can request education loans of up to KD 25,000 or 25 times the salary (whichever is less) to finance education fees in the state of Kuwait.\r\n\r\nApplications can be submitted through the following channels:\r\n\r\n•    Website.\r\n•    Smartphone application.\r\n•    CFC branches."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1195,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "طلبات التقديم: ",
+                                                                "content_en": "Application requirements:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1196,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • البطاقة المدنية\r\n  • شهادة راتب حديثة\r\n  • جواز سفر لغير الكويتيين\r\n • اثبات التسجيل في المدرسة أو الجامعة\r\n • البطاقة المدنية للطالب\r\n",
+                                                                "content_en": "• Civil ID.\n• Recent salary certificate.\n• Passport for non-Kuwaitis.\n• Registration papers for the student.\n• Civil ID for the student."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1197,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "شروط عامة: ",
+                                                                "content_en": "Terms and conditions:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1198,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • الحد الأدنى للراتب هو  300 \r\n • يجب ألا تتجاوز الالتزامات الشهرية الإجمالية للعميل 40٪ من صافي الراتب و30٪ في حالة المتقاعدين  \r\n  • يجب ألا يتجاوز مبلغ القرض 25 ضعف الراتب أو خمسة وعشرون ألف دينار كويتي أيهما أقل \r\n • لا تتجاوز فترة التمويل 60 شهرًا ",
+                                                                "content_en": " • Minimum salary of KD 300.\r\n  • The client’s total monthly commitments should not exceed 40% of the net salary, or 30% for retirees.\r\n • The loan amount should not exceed 25 times the salary or KD 25,000, whichever is less.\r\n • The financing period should not exceed 60 months."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1199,
+                                                            "key": "",
+                                                            "type": "button",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "20"
+                                                                },
+                                                                "sm": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "100"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "cta": {
+                                                                    "label_ar": "احسب",
+                                                                    "label_en": "Calculate",
+                                                                    "link_ar": "ar/calculate/28",
+                                                                    "link_en": "/calculate/28"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": 1200,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "30"
+                                        },
+                                        "sm": {
+                                            "align": "center",
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1201,
+                                                "key": "offer-image",
+                                                "type": "image",
+                                                "styles": {
+                                                    "lg": {
+                                                        "height": " min-h-[300px]   ",
+                                                        "radius": "2xl",
+                                                        "width": " min-w-[300px]  "
+                                                    },
+                                                    "sm": {
+                                                        "height": " max-h-[470px] ",
+                                                        "radius": "2xl",
+                                                        "width": " max-w-[500px] "
+                                                    }
+                                                },
+                                                "params": {
+                                                    "src_ar": "/assets/education-loan-service.jpg",
+                                                    "src_en": "/assets/education-loan-service.jpg"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 35,
+                "order": 0,
+                "slug": "marine-loan",
+                "path": "/services/marine-loan",
+                "title_ar": " تمويل المعدات البحرية والقوارب",
+                "title_en": "Marine Loans",
+                "type": "content",
+                "parent_id": 30,
+                "status": "",
+                "meta": {
+                    "preview": "https://cfc.bits.com.kw:8443/assets/marine-loan-service.jpg",
+                    "products": "23",
+                    "tags": "services"
+                },
+                "styles": {
+                    "lg": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    },
+                    "sm": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    }
+                },
+                "sections": [
+                    {
+                        "id": 1202,
+                        "key": "",
+                        "type": "frame",
+                        "styles": {
+                            "lg": {
+                                "background": "secondary",
+                                "gap": 6,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "horizontal",
+                                "padding": "px-12 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            },
+                            "sm": {
+                                "background": "secondary",
+                                "gap": 4,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "vertical",
+                                "padding": "px-4 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            }
+                        },
+                        "params": {
+                            "children": [
+                                {
+                                    "id": 1203,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "70"
+                                        },
+                                        "sm": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1204,
+                                                "key": "",
+                                                "type": "frame",
+                                                "styles": {
+                                                    "lg": {
+                                                        "gap": 4
+                                                    },
+                                                    "sm": {
+                                                        "gap": 2
+                                                    }
+                                                },
+                                                "params": {
+                                                    "children": [
+                                                        {
+                                                            "id": 1205,
+                                                            "key": "offer-title",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تمويل المعدات البحرية والقوارب:",
+                                                                "content_en": "Boats and Marine Equipment Financing:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1206,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تتيح التسهيلات لعملائها امكانية تمويل شراء المعدات البحرية والقوارب وبحد أقصى 25,000 دينار كويتي أو 25 ضعف الراتب (أيهما أقل)، ولمدة تصل إلى 60 شهر، ويمكن تقديم طلبات التمويل من خلال القنوات التالية: \r\n • الموقع الإلكتروني \r\n • تطبيق الهواتف الذكية \r\n • فروع الشركة ",
+                                                                "content_en": "At CFC, customers can finance the purchase of boats and marine equipment up to KD 25,000 or 25 times the salary (whichever is less) over a period of up to 60 months. \r\n\r\nBoats and marine equipment applications can be submitted through the following channels: \r\n\r\n• Website. \r\n• Smartphone application. \r\n• CFC branches. "
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1207,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "طلبات التقديم: ",
+                                                                "content_en": "Application requirements:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1208,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • البطاقة المدنية \r\n • شهادة راتب حديثة \r\n • جواز سفر لغير الكويتيين \r\n",
+                                                                "content_en": " • Civil ID.\r\n  • Recent salary certificate.\r\n • Passport for non-Kuwaitis."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1209,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "شروط عامة: ",
+                                                                "content_en": "Terms and conditions:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1210,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • الحد الأدنى للراتب هو 300 \r\n • يجب ألا تتجاوز الالتزامات الشهرية الإجمالية للعميل 40٪ من صافي الراتب و30٪ في حالة المتقاعدين \r\n  • يجب ألا يتجاوز مبلغ القرض 25 ضعف الراتب أو خمسة وعشرون ألف دينار كويتي أيهما أقل \r\n • لا تتجاوز فترة التمويل 60 شهرًا ",
+                                                                "content_en": " • Minimum salary of KD 300.\r\n  • The client’s total monthly commitments should not exceed 40% of the net salary, or 30% for retirees.\r\n  • The loan amount should not exceed 25 times the salary or KD 25,000, whichever is lower.\r\n • The financing period should not exceed 60 months."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1211,
+                                                            "key": "",
+                                                            "type": "button",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "20"
+                                                                },
+                                                                "sm": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "100"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "cta": {
+                                                                    "label_ar": "احسب",
+                                                                    "label_en": "Calculate",
+                                                                    "link_ar": "ar/calculate/23",
+                                                                    "link_en": "/calculate/23"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": 1212,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "30"
+                                        },
+                                        "sm": {
+                                            "align": "center",
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1213,
+                                                "key": "offer-image",
+                                                "type": "image",
+                                                "styles": {
+                                                    "lg": {
+                                                        "height": " min-h-[300px]   ",
+                                                        "radius": "2xl",
+                                                        "width": " min-w-[300px]  "
+                                                    },
+                                                    "sm": {
+                                                        "height": " max-h-[470px] ",
+                                                        "radius": "2xl",
+                                                        "width": " max-w-[500px] "
+                                                    }
+                                                },
+                                                "params": {
+                                                    "src_ar": "/assets/marine-loan-service.jpg",
+                                                    "src_en": "/assets/marine-loan-service.jpg"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 36,
+                "order": 0,
+                "slug": "furniture-loan",
+                "path": "/services/furniture-loan",
+                "title_ar": " قروض الأثاث",
+                "title_en": "Furniture Loans",
+                "type": "content",
+                "parent_id": 30,
+                "status": "",
+                "meta": {
+                    "preview": "https://cfc.bits.com.kw:8443/assets/furniture-loan-service.jpg",
+                    "products": "22",
+                    "tags": "services"
+                },
+                "styles": {
+                    "lg": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    },
+                    "sm": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    }
+                },
+                "sections": [
+                    {
+                        "id": 1214,
+                        "key": "",
+                        "type": "frame",
+                        "styles": {
+                            "lg": {
+                                "background": "secondary",
+                                "gap": 6,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "horizontal",
+                                "padding": "px-12 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            },
+                            "sm": {
+                                "background": "secondary",
+                                "gap": 4,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "vertical",
+                                "padding": "px-4 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            }
+                        },
+                        "params": {
+                            "children": [
+                                {
+                                    "id": 1215,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "70"
+                                        },
+                                        "sm": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1216,
+                                                "key": "",
+                                                "type": "frame",
+                                                "styles": {
+                                                    "lg": {
+                                                        "gap": 4
+                                                    },
+                                                    "sm": {
+                                                        "gap": 2
+                                                    }
+                                                },
+                                                "params": {
+                                                    "children": [
+                                                        {
+                                                            "id": 1217,
+                                                            "key": "offer-title",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " تمويل الاثاث:",
+                                                                "content_en": "Furniture Financing :"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1218,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تيح التسهيلات لعملائها الحصول على قروض استهلاكية تصل إلى 25,000 دينار كويتي أو 25 ضعف الراتب (أيهما أقل) لتمويل احتياجاتهم من الأثاث من مختلف المصادر. ويمكن تقديم طلبات التمويل عبر القنوات التالية:\r\n\t • الموقع الإلكتروني \r\n\t • تطبيق الهواتف الذكية \r\n\t• فروع الشركة\r\n",
+                                                                "content_en": "At CFC, customers can request furniture financing of up to KD 25,000 or 25 times the salary (whichever is less) to finance the purchase of furniture from various sources.\r\n\nApplications can be submitted through the following channels:\r\n\n•    Website.\r\n•    Smartphone application.\r\n•    CFC branches."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1219,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "طلبات التقديم: ",
+                                                                "content_en": "Application requirements:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1220,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • البطاقة المدنية \r\n • شهادة راتب حديثة \r\n • جواز سفر لغير الكويتيين \r\n ",
+                                                                "content_en": " • Civil ID.\r\n  • Recent salary certificate.\r\n • Passport for non-Kuwaitis."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1221,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "شروط عامة: ",
+                                                                "content_en": "Terms and conditions:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1222,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • الحد الأدنى للراتب هو 300 \r\n • يجب ألا تتجاوز الالتزامات الشهرية الإجمالية للعميل 40٪ من صافي الراتب و30٪ في حالة المتقاعدين \r\n • يجب ألا يتجاوز مبلغ القرض 25 ضعف الراتب أو خمسة وعشرون ألف دينار كويتي أيهما أقل \r\n • لا تتجاوز فترة التمويل 60 شهرًا ",
+                                                                "content_en": " • Minimum salary of KD 300.\r\n • The client’s total monthly commitments should not exceed 40% of the net salary, or 30% for retirees.\r\n • The loan amount should not exceed 25 times the salary or KD 25,000, whichever is lower.\r\n • The financing period should not exceed 60 months."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1223,
+                                                            "key": "",
+                                                            "type": "button",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "20"
+                                                                },
+                                                                "sm": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "100"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "cta": {
+                                                                    "label_ar": "احسب",
+                                                                    "label_en": "Calculate",
+                                                                    "link_ar": "ar/calculate/22",
+                                                                    "link_en": "/calculate/22"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": 1224,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "30"
+                                        },
+                                        "sm": {
+                                            "align": "center",
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1225,
+                                                "key": "offer-image",
+                                                "type": "image",
+                                                "styles": {
+                                                    "lg": {
+                                                        "height": " min-h-[300px]   ",
+                                                        "radius": "2xl",
+                                                        "width": " min-w-[300px]  "
+                                                    },
+                                                    "sm": {
+                                                        "height": " max-h-[470px] ",
+                                                        "radius": "2xl",
+                                                        "width": " max-w-[500px] "
+                                                    }
+                                                },
+                                                "params": {
+                                                    "src_ar": "/assets/furniture-loan-service.jpg",
+                                                    "src_en": "/assets/furniture-loan-service.jpg"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 37,
+                "order": 0,
+                "slug": "electrical-loan",
+                "path": "/services/electrical-loan",
+                "title_ar": "قروض الأجهزة الكهربائية",
+                "title_en": "Electrical Loans",
+                "type": "content",
+                "parent_id": 30,
+                "status": "",
+                "meta": {
+                    "preview": "https://cfc.bits.com.kw:8443/assets/electrical-loan-service.jpg",
+                    "products": "24",
+                    "tags": "services"
+                },
+                "styles": {
+                    "lg": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    },
+                    "sm": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    }
+                },
+                "sections": [
+                    {
+                        "id": 1226,
+                        "key": "",
+                        "type": "frame",
+                        "styles": {
+                            "lg": {
+                                "background": "secondary",
+                                "gap": 6,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "horizontal",
+                                "padding": "px-12 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            },
+                            "sm": {
+                                "background": "secondary",
+                                "gap": 4,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "vertical",
+                                "padding": "px-4 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            }
+                        },
+                        "params": {
+                            "children": [
+                                {
+                                    "id": 1227,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "70"
+                                        },
+                                        "sm": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1228,
+                                                "key": "",
+                                                "type": "frame",
+                                                "styles": {
+                                                    "lg": {
+                                                        "gap": 4
+                                                    },
+                                                    "sm": {
+                                                        "gap": 2
+                                                    }
+                                                },
+                                                "params": {
+                                                    "children": [
+                                                        {
+                                                            "id": 1229,
+                                                            "key": "offer-title",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " تمويل الأجهزة الكهربائية:",
+                                                                "content_en": "Electrical Appliances Financing:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1230,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تتيح التسهيلات لعملائها الحصول على قروض استهلاكية تصل إلى 25,000 دينار كويتي أو 25 ضعف الراتب (أيهما أقل) لتمويل احتياجاتهم من الأجهزة الكهربائية من مختلف المصادر. \r\nويمكن تقديم طلبات التمويل عبر القنوات التالية:\r\n\t • الموقع الإلكتروني\r\n\t • تطبيق الهواتف الذكية \r\n\t • فروع الشركة",
+                                                                "content_en": "At CFC, customers can request electrical appliances financing of up to KD 25,000 or 25 times the salary (whichever is less) to finance the purchase of household electronics from various sources.\r\n\r\nApplications can be submitted through the following channels:\r\n\r\n•    Website.\r\n•    Smartphone application.\r\n•    CFC branches."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1231,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "طلبات التقديم: ",
+                                                                "content_en": "Application requirements:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1232,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • البطاقة المدنية \r\n • شهادة راتب حديثة \r\n • جواز سفر لغير الكويتيين \r\n ",
+                                                                "content_en": " • Civil ID.\r\n • Recent salary certificate.\r\n• Passport for non-Kuwaitis."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1233,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "شروط عامة: ",
+                                                                "content_en": "Terms and conditions:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1234,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "  • الحد الأدنى للراتب هو 300 \r\n • يجب ألا تتجاوز الالتزامات الشهرية الإجمالية للعميل 40٪ من صافي الراتب و30٪ في حالة المتقاعدين \r\n • يجب ألا يتجاوز مبلغ القرض 25 ضعف الراتب أو خمسة وعشرون ألف دينار كويتي أيهما أقل \r\n • لا تتجاوز فترة التمويل 60 شهرًا ",
+                                                                "content_en": " • Minimum salary of KD 300.\r\n  • The client’s total monthly commitments should not exceed 40% of the net salary, or 30% for retirees.\r\n • The loan amount should not exceed 25 times the salary or KD 25,000, whichever is lower.\r\n  • The financing period should not exceed 60 months."
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1235,
+                                                            "key": "",
+                                                            "type": "button",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "20"
+                                                                },
+                                                                "sm": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "100"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "cta": {
+                                                                    "label_ar": "احسب",
+                                                                    "label_en": "Calculate",
+                                                                    "link_ar": "ar/calculate/24",
+                                                                    "link_en": "/calculate/24"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": 1236,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "30"
+                                        },
+                                        "sm": {
+                                            "align": "center",
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1237,
+                                                "key": "offer-image",
+                                                "type": "image",
+                                                "styles": {
+                                                    "lg": {
+                                                        "height": " min-h-[300px]   ",
+                                                        "radius": "2xl",
+                                                        "width": " min-w-[300px]  "
+                                                    },
+                                                    "sm": {
+                                                        "height": " max-h-[470px] ",
+                                                        "radius": "2xl",
+                                                        "width": " max-w-[500px] "
+                                                    }
+                                                },
+                                                "params": {
+                                                    "src_ar": "/assets/electrical-loan-service.jpg",
+                                                    "src_en": "/assets/electrical-loan-service.jpg"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 38,
+                "order": 0,
+                "slug": "commercial-loan",
+                "path": "/services/commercial-loan",
+                "title_ar": "القروض التجارية ",
+                "title_en": "Commercial Loans",
+                "type": "content",
+                "parent_id": 30,
+                "status": "",
+                "meta": {
+                    "preview": "https://cfc.bits.com.kw:8443/assets/commercial-loan-service.jpg",
+                    "products": "29",
+                    "tags": "services"
+                },
+                "styles": {
+                    "lg": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    },
+                    "sm": {
+                        "background": "primary",
+                        "gap": 30,
+                        "padding": "px-0 py-2"
+                    }
+                },
+                "sections": [
+                    {
+                        "id": 1238,
+                        "key": "",
+                        "type": "frame",
+                        "styles": {
+                            "lg": {
+                                "background": "secondary",
+                                "gap": 6,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "horizontal",
+                                "padding": "px-12 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            },
+                            "sm": {
+                                "background": "secondary",
+                                "gap": 4,
+                                "justify": "between",
+                                "margin": "my-4",
+                                "orientation": "vertical",
+                                "padding": "px-4 py-8",
+                                "radius": "3xl",
+                                "width": "100"
+                            }
+                        },
+                        "params": {
+                            "children": [
+                                {
+                                    "id": 1239,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "70"
+                                        },
+                                        "sm": {
+                                            "align": "start",
+                                            "background": "transparent",
+                                            "gap": 5,
+                                            "justify": "center",
+                                            "orientation": "vertical",
+                                            "padding": " py-3",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1240,
+                                                "key": "",
+                                                "type": "frame",
+                                                "styles": {
+                                                    "lg": {
+                                                        "gap": 4
+                                                    },
+                                                    "sm": {
+                                                        "gap": 2
+                                                    }
+                                                },
+                                                "params": {
+                                                    "children": [
+                                                        {
+                                                            "id": 1241,
+                                                            "key": "offer-title",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "color": "brand",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "القروض التجارية:  ",
+                                                                "content_en": "Commercial Loans:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1242,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "تقدم التسهيلات لعملائها من المؤسسات والشركات ... الحصول على قروض تجارية لتمويل تطوير انشطتهم بشراء الأصول وذلك من خلال القنوات التالية: \r\n • فروع الشركة \r\n • موظفينا في معارض وكالات السيارات \r\n  • موظفينا في مكاتب السيارات المستعملة ",
+                                                                "content_en": "CFC offers commercial loans to corporate clients for financing their business development through asset purchases.  \r\n\r\nThis can be done through the following channels: \r\n\r\n  • CFC branches. \r\n  • CFC representatives at car showrooms. \r\n  • CFC representatives at used car outlets. "
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1243,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base",
+                                                                    "weight": "600"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": "طلبات التقديم: ",
+                                                                "content_en": "Application requirements:"
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1244,
+                                                            "key": "offer-text",
+                                                            "type": "text",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                },
+                                                                "sm": {
+                                                                    "align": "left",
+                                                                    "size": "base"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "content_ar": " • الميزانية العمومية للشركة او المؤسسة \r\n • كشف حساب بنكي 6 شهور  \r\n • الرخصة التجارية \r\n • مستخرج حديث من وزارة التجارة والصناعة \r\n • اعتماد توقيع الشؤون \r\n  • السجل التجاري \r\n • البطاقة المدنية الأصلية لمدير الشركة او المؤسسة (الكفيل) + شهادة راتبه \r\n  • مدنية الموكل الأصلية + التوكيل (في حالة التوقيع بموجب توكيل الإدارة) \r\n  • عقود التأسيس والتعديل (للشركات فقط) \r\n  • صور البطاقات المدنية لجميع الشركاء (للشركات فقط) \r\n • RJ من المرور (ان وجد) \r\n • أوراق وعقود عمل مع جهات أخرى (ان وجد) \r\n • التدفقات المالية المتوقعة ",
+                                                                "content_en": " • Company or institution’s financial statement. \r\n  • A 6 month bank statement. \r\n • Commercial license. \r\n • Recent extract from the Ministry of Commerce and Industry. \r\n  • Authorized signatory. \r\n  • Commercial registration. \r\n  • Original civil ID for the company’s manager or founder (guarantor) + their salary certificate. \r\n • Original civil ID for the authorized representative + authorization (in case of signing by proxy). \r\n  • Establishment and amendment contracts (for companies only).\r\n  • Civil ID copies for all partners (for companies only).\r\n • Traffic department clearance (if applicable). \r\n • Employment contracts with other entities (if applicable). \r\n  • Expected financial flows for the next 4 years. "
+                                                            }
+                                                        },
+                                                        {
+                                                            "id": 1245,
+                                                            "key": "",
+                                                            "type": "button",
+                                                            "styles": {
+                                                                "lg": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "20"
+                                                                },
+                                                                "sm": {
+                                                                    "background": "brand",
+                                                                    "color": "invert",
+                                                                    "height": "10",
+                                                                    "margin": "my-1",
+                                                                    "padding": "px-4 py-2",
+                                                                    "radius": "md",
+                                                                    "textSize": "sm",
+                                                                    "textWeight": "400",
+                                                                    "width": "100"
+                                                                }
+                                                            },
+                                                            "params": {
+                                                                "cta": {
+                                                                    "label_ar": "احسب",
+                                                                    "label_en": "Calculate",
+                                                                    "link_ar": "ar/calculate/29",
+                                                                    "link_en": "/calculate/29"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "id": 1246,
+                                    "key": "",
+                                    "type": "frame",
+                                    "styles": {
+                                        "lg": {
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "30"
+                                        },
+                                        "sm": {
+                                            "align": "center",
+                                            "orientation": "vertical",
+                                            "radius": "2xl",
+                                            "width": "100"
+                                        }
+                                    },
+                                    "params": {
+                                        "children": [
+                                            {
+                                                "id": 1247,
+                                                "key": "offer-image",
+                                                "type": "image",
+                                                "styles": {
+                                                    "lg": {
+                                                        "height": " min-h-[300px]   ",
+                                                        "radius": "2xl",
+                                                        "width": " min-w-[300px]  "
+                                                    },
+                                                    "sm": {
+                                                        "height": " max-h-[470px] ",
+                                                        "radius": "2xl",
+                                                        "width": " max-w-[500px] "
+                                                    }
+                                                },
+                                                "params": {
+                                                    "src_ar": "/assets/commercial-loan-service.jpg",
+                                                    "src_en": "/assets/commercial-loan-service.jpg"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,5 +1,5 @@
-import Home from "./pages/Home/Home";
+import AppRouter from "./routes/AppRouter";
 
 export default function App() {
-  return <Home />;
+  return <AppRouter />;
 }

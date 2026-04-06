@@ -1,93 +1,52 @@
-import { useState, useCallback } from "react";
-import type { PageData, PageNode, Language } from "../types";
-import initialData from "../data/mock-data.json";
-
-function updateNodeAtPath(
-  nodes: PageNode[],
-  path: number[],
-  updater: (node: PageNode) => PageNode
-): PageNode[] {
-  if (path.length === 0) return nodes;
-
-  return nodes.map((node, index) => {
-    if (index !== path[0]) return node;
-
-    if (path.length === 1) return updater(node);
-
-    if (node.type === "frame") {
-      return {
-        ...node,
-        params: {
-          ...node.params,
-          children: updateNodeAtPath(node.params.children, path.slice(1), updater),
-        },
-      };
-    }
-
-    return node;
-  });
-}
+import { useCallback } from "react";
+import { useAppDispatch, useAppSelector } from "./useAppDispatch";
+import { setData, setLanguage, updateTextField, updateImageSrc } from "../store/slices/pageSlice";
+import { pageService } from "../services/pageService";
+import type { Language, PageData } from "../types";
 
 export function usePageData() {
-  const [pageData, setPageData] = useState<PageData>(initialData as PageData);
-  const [language, setLanguage] = useState<Language>("en");
+  const dispatch = useAppDispatch();
+  const pageData = useAppSelector((state) => state.page.data);
+  const language = useAppSelector((state) => state.page.language);
+console.log(pageData,"pageData")
+  const fetchPage = useCallback(async (path: string) => {
+    const res = await pageService.getPage(path);
+    const raw = res.data as unknown;
+    const page = Array.isArray(raw)
+      ? (raw as PageData[])[0]
+      : (raw as { data: PageData[] }).data?.[0];
+    if (page) dispatch(setData(page));
+  }, [dispatch]);
 
-  const updateTextField = useCallback(
-    (sectionIndex: number, path: number[], value: string) => {
-      setPageData((prev) => {
-        const langKey = language === "en" ? "content_en" : "content_ar";
-        const updatedSections = updateNodeAtPath(
-          prev.sections,
-          [sectionIndex, ...path],
-          (node) => {
-            if (node.type === "text" || node.type === "textarea") {
-              return {
-                ...node,
-                params: { ...node.params, [langKey]: value },
-              };
-            }
-            return node;
-          }
-        );
-        return { ...prev, sections: updatedSections };
-      });
-    },
-    [language]
+  const handleSetLanguage = useCallback(
+    (lang: Language) => dispatch(setLanguage(lang)),
+    [dispatch]
   );
 
-  const updateImageSrc = useCallback(
-    (sectionIndex: number, path: number[], src: string) => {
-      setPageData((prev) => {
-        const srcKey = language === "en" ? "src_en" : "src_ar";
-        const updatedSections = updateNodeAtPath(
-          prev.sections,
-          [sectionIndex, ...path],
-          (node) => {
-            if (node.type === "image") {
-              return {
-                ...node,
-                params: { ...node.params, [srcKey]: src },
-              };
-            }
-            return node;
-          }
-        );
-        return { ...prev, sections: updatedSections };
-      });
-    },
-    [language]
+  const handleUpdateTextField = useCallback(
+    (sectionIndex: number, path: number[], value: string, pageId?: number, subPageId?: number) =>
+      dispatch(updateTextField({ sectionIndex, path, value, pageId, subPageId })),
+    [dispatch]
   );
 
-  const saveData = useCallback(() => {
-    console.log("Saved Page Data:", JSON.stringify(pageData, null, 2));
+  const handleUpdateImageSrc = useCallback(
+    (sectionIndex: number, path: number[], src: string, pageId?: number, subPageId?: number) =>
+      dispatch(updateImageSrc({ sectionIndex, path, src, pageId, subPageId })),
+    [dispatch]
+  );
+
+  const saveData = useCallback(async () => {
+    console.log(JSON.stringify(pageData),"pageData")
+    if (pageData.id) await pageService.updatePage(pageData.id, pageData);
   }, [pageData]);
 
   return {
     pageData,
     language,
-    setLanguage,
-    updateTextField,
-    updateImageSrc,
+    fetchPage,
+    setLanguage: handleSetLanguage,
+    updateTextField: handleUpdateTextField,
+    updateImageSrc: handleUpdateImageSrc,
     saveData,
   };
 }

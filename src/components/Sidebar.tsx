@@ -83,7 +83,7 @@ export default function Sidebar() {
           </NavLink>
         ))}
 
-        {activeTopLevel && activeTopLevel.children.length > 0 && (
+        {/* {activeTopLevel && activeTopLevel.children.length > 0 && (
           <div className="mt-2 ml-2 border-l border-gray-200 pl-3 flex flex-col gap-1">
             <span className="text-xs text-gray-400 font-medium px-1 mb-1 uppercase tracking-wide">
               {activeTopLevel.title_en}
@@ -103,7 +103,7 @@ export default function Sidebar() {
               </button>
             ))}
           </div>
-        )}
+        )} */}
       </nav>
 
       <button

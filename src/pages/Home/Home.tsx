@@ -7,6 +7,7 @@ import { pageService } from "../../services/pageService";
 import Layout from "../../components/Layout";
 import RightBar from "../../components/RightBar";
 import Why from "./Why";
+import DisclosureTab from "../../components/DisclosureTab";
 import type { Language, PageNode } from "../../types";
 import type { NavItem } from "../../types/nav";
 
@@ -159,7 +160,9 @@ export default function Home() {
       )}
 
       {/* Sections */}
-      {sections.length > 0 ? (
+      {activeSubPage?.slug === "disclosure" ? (
+        <DisclosureTab pageData={activeSubPage} language={language} />
+      ) : sections.length > 0 ? (
         sections.map((section, index) => (
           <Why
             key={section.id ?? `s-${index}`}

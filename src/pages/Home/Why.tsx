@@ -14,9 +14,7 @@ interface WhyProps {
   readonly onImageChange: (sectionIndex: number, path: number[], src: string) => void;
 }
 
-// Correct paths relative to the section children array.
-// Avoids wrapping-array bug: getEditableNodes([child], [childIndex]) would
-// produce paths like [childIndex, 0] instead of [childIndex].
+
 function getChildEditableNodes(child: PageNode, childIndex: number): EditableNode[] {
   if (child.type === 'text' || child.type === 'textarea' || child.type === 'image') {
     return [{ node: child, path: [childIndex] }];
@@ -27,7 +25,7 @@ function getChildEditableNodes(child: PageNode, childIndex: number): EditableNod
   return [];
 }
 
-// A person card frame: children[0]=image, children[1]=frame(texts)
+
 function isPersonCard(node: PageNode): node is FrameNode {
   if (node.type !== 'frame') return false;
   const kids = node.params.children;

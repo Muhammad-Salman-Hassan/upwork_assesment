@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { PageData, PageNode, Language } from "../../types";
-import homeJson from "../../data/home.json";
-
-const initialData = homeJson[0] as PageData;
+const initialData: PageData = {
+  slug: "",
+  path: "",
+  type: "content",
+};
 
 function updateNodeAtPath(
   nodes: PageNode[] | undefined,

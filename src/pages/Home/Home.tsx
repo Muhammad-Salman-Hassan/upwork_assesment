@@ -38,7 +38,7 @@ export default function Home() {
 
   // Active sub-page selected from RightBar
   const [activePageId, setActivePageId] = useState<number | null>(null);
-  // Active tab within the sub-page (if sub-page has nested pages)
+
   const [activeSubPageId, setActiveSubPageId] = useState<number | null>(null);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function Home() {
     if (navItem) fetchPage(getPagePath(navItem));
   }, [navId, navItems, fetchPage]);
 
-  // Auto-select first sub-page when pageData loads
+  
   useEffect(() => {
     if (pageData.pages && pageData.pages.length > 0) {
       setActivePageId(pageData.pages[0].id ?? null);
@@ -62,10 +62,10 @@ export default function Home() {
     }
   }, [pageData.id]);
 
-  // Derive active objects from Redux state (always fresh)
+  
   const activePage = pageData.pages?.find((p) => p.id === activePageId) ?? null;
 
-  // Auto-select first tab when active page changes
+
   useEffect(() => {
     if (activePage?.pages && activePage.pages.length > 0) {
       setActiveSubPageId(activePage.pages[0].id ?? null);
@@ -76,7 +76,7 @@ export default function Home() {
 
   const activeSubPage = activePage?.pages?.find((p) => p.id === activeSubPageId) ?? null;
 
-  // Sections to render: sub-page tab → sub-page → root page
+
   const sections: PageNode[] =
     activeSubPage?.sections ?? activePage?.sections ?? pageData.sections ?? [];
 
@@ -87,7 +87,7 @@ export default function Home() {
     pageData.title ??
     "";
 
-  // RightBar pages: show pageData.pages if available, else empty
+ 
   const sidebarPages = pageData.pages ?? [];
 
   async function handleSave() {
@@ -159,7 +159,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Sections */}
+     
       {activeSubPage?.slug === "disclosure" ? (
         <DisclosureTab pageData={activeSubPage} language={language} />
       ) : sections.length > 0 ? (

@@ -71,6 +71,9 @@ const pageSlice = createSlice({
     setData(state, action: PayloadAction<PageData>) {
       state.data = action.payload;
     },
+    clearData(state) {
+      state.data = initialData;
+    },
     setLanguage(state, action: PayloadAction<Language>) {
       state.language = action.payload;
     },
@@ -106,8 +109,26 @@ const pageSlice = createSlice({
         }
       );
     },
+    updatePageSections(
+      state,
+      action: PayloadAction<{ pageId: number; sections: PageNode[] }>
+    ) {
+      const page = state.data.pages?.find((p) => p.id === action.payload.pageId);
+      if (page) page.sections = action.payload.sections;
+    },
+    updateSubPageSections(
+      state,
+      action: PayloadAction<{ pageId: number; subPageId: number; sections: PageNode[] }>
+    ) {
+      const page = state.data.pages?.find((p) => p.id === action.payload.pageId);
+      if (page) {
+        const subPage = page.pages?.find((p) => p.id === action.payload.subPageId);
+        if (subPage) subPage.sections = action.payload.sections;
+      }
+    },
   },
 });
 
-export const { setData, setLanguage, updateTextField, updateImageSrc } = pageSlice.actions;
+export const { setData, clearData, setLanguage, updateTextField, updateImageSrc, updatePageSections, updateSubPageSections } =
+  pageSlice.actions;
 export default pageSlice.reducer;

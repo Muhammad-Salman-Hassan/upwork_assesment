@@ -8,6 +8,10 @@ import Layout from "../../components/Layout";
 import RightBar from "../../components/RightBar";
 import Why from "./Why";
 import DisclosureTab from "../../components/DisclosureTab";
+import BranchesTab from "../../components/BranchesTab";
+import FAQTab from "../../components/FAQTab";
+import Loader from "../../components/Loader";
+import { updatePageSections, updateSubPageSections } from "../../store/slices/pageSlice";
 import type { Language, PageNode } from "../../types";
 import type { NavItem } from "../../types/nav";
 
@@ -34,9 +38,9 @@ export default function Home() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const navItems = useAppSelector((state) => state.nav.items);
-  const { pageData, language, fetchPage, setLanguage, updateTextField, updateImageSrc } = usePageData();
+  const { pageData, language, loading, fetchPage, setLanguage, updateTextField, updateImageSrc } = usePageData();
 
-  // Active sub-page selected from RightBar
+ 
   const [activePageId, setActivePageId] = useState<number | null>(null);
 
   const [activeSubPageId, setActiveSubPageId] = useState<number | null>(null);
@@ -91,8 +95,6 @@ export default function Home() {
   const sidebarPages = pageData.pages ?? [];
 
   async function handleSave() {
-    const activeTarget = activeSubPage ?? activePage ?? pageData;
-    console.log("Active page being saved:", activeTarget);
     if (pageData.id) {
       await pageService.updatePage(pageData.id, pageData);
     }
@@ -123,7 +125,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Language tabs */}
+
       <div className="flex gap-2 mb-4 border-b border-gray-200">
         {(["en", "ar"] as Language[]).map((lang) => (
           <button
@@ -140,7 +142,7 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Sub-page tabs (shown when active sub-page has nested pages) */}
+      
       {activePage?.pages && activePage.pages.length > 0 && (
         <div className="flex gap-1 flex-wrap mb-5 p-1 bg-gray-100 rounded-lg">
           {activePage.pages.map((subPage) => (
@@ -160,8 +162,34 @@ export default function Home() {
       )}
 
      
-      {activeSubPage?.slug === "disclosure" ? (
-        <DisclosureTab pageData={activeSubPage} language={language} />
+      {loading ? (
+        <Loader />
+      ) : activePage?.slug === "branches" ? (
+        <BranchesTab
+          pageData={activePage}
+          language={language}
+          onSectionsChange={(s: PageNode[]) =>
+            activePage.id && dispatch(updatePageSections({ pageId: activePage.id, sections: s }))
+          }
+        />
+      ) : activePage?.slug === "faq" ? (
+        <FAQTab
+          pageData={activePage}
+          language={language}
+          onSectionsChange={(s: PageNode[]) =>
+            activePage.id && dispatch(updatePageSections({ pageId: activePage.id, sections: s }))
+          }
+        />
+      ) : activeSubPage?.slug === "disclosure" ? (
+        <DisclosureTab
+          pageData={activeSubPage}
+          language={language}
+          onSectionsChange={(sections) => {
+            if (activePage?.id && activeSubPage?.id) {
+              dispatch(updateSubPageSections({ pageId: activePage.id, subPageId: activeSubPage.id, sections }));
+            }
+          }}
+        />
       ) : sections.length > 0 ? (
         sections.map((section, index) => (
           <Why

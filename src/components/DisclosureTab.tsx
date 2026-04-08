@@ -1,6 +1,7 @@
-import { useState, useMemo, useEffect } from "react";
-import { FileText, Search, ChevronLeft, ChevronRight } from "lucide-react";
-import type { PageData, Language, FrameNode, TextNode } from "../types";
+import { useState, useMemo, useEffect, useRef } from "react";
+import { FileText, Search, ChevronLeft, ChevronRight, UploadCloud, X, CheckCircle2, Loader2 } from "lucide-react";
+import type { PageData, Language, FrameNode, TextNode, PageNode } from "../types";
+import { fileService } from "../services/fileService";
 
 interface DisclosureItem {
   id: number;
@@ -14,9 +15,7 @@ interface DisclosureItem {
 interface DisclosureTabProps {
   readonly pageData: PageData;
   readonly language: Language;
-  readonly onAdd?: (item: Omit<DisclosureItem, "id">) => void;
-  readonly onEdit?: (id: number, item: Partial<DisclosureItem>) => void;
-  readonly onDelete?: (id: number) => void;
+  readonly onSectionsChange?: (sections: PageNode[]) => void;
 }
 
 const emptyForm = {
@@ -26,6 +25,127 @@ const emptyForm = {
   link_en: "",
   link_ar: "",
 };
+
+type UploadStatus = "idle" | "uploading" | "done" | "error";
+
+function PdfUploader({
+  label,
+  value,
+  onChange,
+}: {
+  readonly label: string;
+  readonly value: string;
+  readonly onChange: (url: string) => void;
+}) {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [status, setStatus] = useState<UploadStatus>("idle");
+  const [fileName, setFileName] = useState<string>(() => value.split("/").pop() ?? "");
+  const [dragOver, setDragOver] = useState(false);
+
+  async function handleFile(file: File) {
+    if (!file) return;
+    setFileName(file.name);
+    setStatus("uploading");
+    try {
+      const url = await fileService.uploadFile(file);
+      onChange(url);
+      setStatus("done");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  function onInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file) handleFile(file);
+  }
+
+  function onDrop(e: React.DragEvent) {
+    e.preventDefault();
+    setDragOver(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) handleFile(file);
+  }
+
+  function clear() {
+    onChange("");
+    setFileName("");
+    setStatus("idle");
+    if (inputRef.current) inputRef.current.value = "";
+  }
+
+  return (
+    <div className="flex flex-col gap-1.5">
+      <span className="text-xs text-gray-500">{label}</span>
+
+      <div
+        onClick={() => status !== "uploading" && inputRef.current?.click()}
+        onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+        onDragLeave={() => setDragOver(false)}
+        onDrop={onDrop}
+        className={`relative flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed px-4 py-5 cursor-pointer transition-colors select-none ${
+          dragOver
+            ? "border-blue-400 bg-blue-50"
+            : status === "done"
+            ? "border-green-300 bg-green-50"
+            : status === "error"
+            ? "border-red-300 bg-red-50"
+            : "border-gray-200 bg-gray-50 hover:border-blue-300 hover:bg-blue-50"
+        }`}
+      >
+        {status === "uploading" && (
+          <>
+            <Loader2 size={22} className="text-blue-500 animate-spin" />
+            <span className="text-xs text-blue-500 font-medium">Uploading…</span>
+          </>
+        )}
+
+        {status === "done" && (
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center gap-2 min-w-0">
+              <CheckCircle2 size={18} className="text-green-500 shrink-0" />
+              <span className="text-xs text-green-700 font-medium truncate">{fileName}</span>
+            </div>
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); clear(); }}
+              className="ml-2 shrink-0 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X size={14} />
+            </button>
+          </div>
+        )}
+
+        {status === "error" && (
+          <>
+            <X size={22} className="text-red-500" />
+            <span className="text-xs text-red-500 font-medium">Upload failed — click to retry</span>
+          </>
+        )}
+
+        {status === "idle" && (
+          <>
+            <UploadCloud size={22} className="text-gray-400" />
+            <div className="text-center">
+              <p className="text-xs font-medium text-gray-600">
+                Drop PDF here or <span className="text-blue-500">browse</span>
+              </p>
+              <p className="text-[11px] text-gray-400 mt-0.5">PDF files only</p>
+            </div>
+          </>
+        )}
+      </div>
+
+      <input
+        ref={inputRef}
+        type="file"
+        accept="application/pdf"
+        className="hidden"
+        onChange={onInputChange}
+      />
+    </div>
+  );
+}
 
 function parseDisclosures(pageData: PageData): DisclosureItem[] {
   try {
@@ -82,12 +202,100 @@ function parseDisclosures(pageData: PageData): DisclosureItem[] {
 
 const PAGE_SIZE = 8;
 
+function buildRow(item: DisclosureItem): PageNode {
+  return {
+    id: item.id,
+    styles: {},
+    type: "frame",
+    params: {
+      children: [
+        {
+          type: "frame",
+          styles: {},
+          params: {
+            children: [
+              {
+                type: "text",
+                styles: {},
+                params: {
+                  content_en: item.title_en,
+                  content_ar: item.title_ar,
+                  link_en: item.link_en,
+                  link_ar: item.link_ar,
+                },
+              },
+            ],
+          },
+        },
+        {
+          type: "frame",
+          styles: {},
+          params: {
+            children: [
+              {
+                type: "text",
+                styles: {},
+                params: {
+                  content_en: item.date,
+                  content_ar: item.date,
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  };
+}
+
+function rebuildSections(pageData: PageData, items: DisclosureItem[]): PageNode[] {
+  const sections = pageData.sections ?? [];
+  const outerFrame = sections[0];
+  if (!outerFrame || outerFrame.type !== "frame") return sections;
+
+  const tableFrame = (outerFrame as FrameNode).params.children?.[0];
+  if (!tableFrame || tableFrame.type !== "frame") return sections;
+
+  // Keep non-data rows (headers/year rows have no link_en or link_ar)
+  const existingRows = (tableFrame as FrameNode).params.children ?? [];
+  const headerRows = existingRows.filter((row) => {
+    if (row.type !== "frame") return true;
+    const leftFrame = (row as FrameNode).params.children?.[0];
+    const leftText =
+      leftFrame?.type === "frame"
+        ? (leftFrame as FrameNode).params.children?.[0]
+        : null;
+    if (!leftText || leftText.type !== "text") return true;
+    const lp = (leftText as TextNode).params;
+    return !lp.link_en && !lp.link_ar;
+  });
+
+  const newTableFrame: FrameNode = {
+    ...(tableFrame as FrameNode),
+    params: {
+      ...(tableFrame as FrameNode).params,
+      children: [...headerRows, ...items.map(buildRow)],
+    },
+  };
+
+  const newOuterFrame: FrameNode = {
+    ...(outerFrame as FrameNode),
+    params: {
+      ...(outerFrame as FrameNode).params,
+      children: [
+        newTableFrame,
+        ...((outerFrame as FrameNode).params.children?.slice(1) ?? []),
+      ],
+    },
+  };
+
+  return [newOuterFrame, ...sections.slice(1)];
+}
+
 export default function DisclosureTab({
   pageData,
   language,
-  onAdd,
-  onEdit,
-  onDelete,
+  onSectionsChange,
 }: DisclosureTabProps) {
   const [items, setItems] = useState<DisclosureItem[]>(() =>
     parseDisclosures(pageData)
@@ -150,21 +358,20 @@ export default function DisclosureTab({
   }
 
   function handleDelete(id: number) {
-    setItems((prev) => prev.filter((i) => i.id !== id));
-    onDelete?.(id);
+    const next = items.filter((i) => i.id !== id);
+    setItems(next);
+    onSectionsChange?.(rebuildSections(pageData, next));
   }
 
   function handleSubmit() {
+    let next: DisclosureItem[];
     if (editingItem) {
-      setItems((prev) =>
-        prev.map((i) => (i.id === editingItem.id ? { ...i, ...form } : i))
-      );
-      onEdit?.(editingItem.id, form);
+      next = items.map((i) => (i.id === editingItem.id ? { ...i, ...form } : i));
     } else {
-      const newItem: DisclosureItem = { ...form, id: Date.now() };
-      setItems((prev) => [newItem, ...prev]);
-      onAdd?.(form);
+      next = [{ ...form, id: Date.now() }, ...items];
     }
+    setItems(next);
+    onSectionsChange?.(rebuildSections(pageData, next));
     setShowModal(false);
   }
 
@@ -354,32 +561,16 @@ export default function DisclosureTab({
                   placeholder="03/03/2026"
                 />
               </div>
-              <div>
-                <label className="text-xs text-gray-500 mb-1 block">
-                  PDF Link (EN)
-                </label>
-                <input
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none focus:border-blue-400 transition-colors"
-                  value={form.link_en}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, link_en: e.target.value }))
-                  }
-                  placeholder="https://..."
-                />
-              </div>
-              <div>
-                <label className="text-xs text-gray-500 mb-1 block">
-                  PDF Link (AR)
-                </label>
-                <input
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm outline-none focus:border-blue-400 transition-colors"
-                  value={form.link_ar}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, link_ar: e.target.value }))
-                  }
-                  placeholder="https://..."
-                />
-              </div>
+              <PdfUploader
+                label="PDF File (EN)"
+                value={form.link_en}
+                onChange={(url) => setForm((f) => ({ ...f, link_en: url }))}
+              />
+              <PdfUploader
+                label="PDF File (AR)"
+                value={form.link_ar}
+                onChange={(url) => setForm((f) => ({ ...f, link_ar: url }))}
+              />
             </div>
 
             <div className="flex gap-3 justify-end pt-1">

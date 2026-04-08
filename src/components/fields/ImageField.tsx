@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { fileService } from "../../services/fileService";
 
 interface ImageFieldProps {
   readonly src: string;
@@ -9,14 +10,25 @@ export default function ImageField({ src, onImageChange }: ImageFieldProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [previewSrc, setPreviewSrc] = useState<string>(src);
   const [hasError, setHasError] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    const objectUrl = URL.createObjectURL(file);
-    setPreviewSrc(objectUrl);
+
+    setPreviewSrc(URL.createObjectURL(file));
     setHasError(false);
-    onImageChange(objectUrl);
+    setUploading(true);
+
+    try {
+      const url = await fileService.uploadFile(file);
+      setPreviewSrc(url);
+      onImageChange(url);
+    } catch {
+      setHasError(true);
+    } finally {
+      setUploading(false);
+    }
   };
 
   return (
@@ -46,9 +58,10 @@ export default function ImageField({ src, onImageChange }: ImageFieldProps) {
 
       <button
         onClick={() => inputRef.current?.click()}
-        className="bg-blue-500 hover:bg-blue-600 text-white text-sm px-4 py-1.5 rounded transition-colors self-start"
+        disabled={uploading}
+        className="bg-blue-500 hover:bg-blue-600 disabled:opacity-60 text-white text-sm px-4 py-1.5 rounded transition-colors self-start"
       >
-        Change Image
+        {uploading ? "Uploading..." : "Change Image"}
       </button>
     </div>
   );

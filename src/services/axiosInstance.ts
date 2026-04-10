@@ -4,7 +4,7 @@ import { logout } from "../store/slices/authSlice";
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL ?? "https://cfc.bits.com.kw",
-  timeout: 10000,
+  timeout: 1000000,
   headers: {
     "Content-Type": "application/json",
   },
@@ -14,7 +14,7 @@ axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+      config.headers.Authorization = `Basic ${token}`;
     }
     return config;
   },

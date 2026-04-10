@@ -14,6 +14,7 @@ interface SignupPayload {
 interface AuthResponse {
   id: number;
   username: string;
+  token: string;
   meta: {
     email: string;
     fullname: string;

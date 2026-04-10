@@ -176,7 +176,7 @@ function parseDisclosures(pageData: PageData): DisclosureItem[] {
 
       if (!leftText || leftText.type !== "text") continue;
       const lp = (leftText as TextNode).params;
-      // Only data rows have a link; skip header/year rows
+    
       if (!lp.link_en && !lp.link_ar) continue;
 
       const date =
@@ -256,7 +256,7 @@ function rebuildSections(pageData: PageData, items: DisclosureItem[]): PageNode[
   const tableFrame = (outerFrame as FrameNode).params.children?.[0];
   if (!tableFrame || tableFrame.type !== "frame") return sections;
 
-  // Keep non-data rows (headers/year rows have no link_en or link_ar)
+ 
   const existingRows = (tableFrame as FrameNode).params.children ?? [];
   const headerRows = existingRows.filter((row) => {
     if (row.type !== "frame") return true;

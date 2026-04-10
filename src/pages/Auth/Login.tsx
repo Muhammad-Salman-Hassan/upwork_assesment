@@ -24,6 +24,7 @@ export default function Login() {
     setError("");
     try {
       const res = await authService.login({ username: form.username, password: form.password });
+      localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data));
       dispatch(login({
         id: res.data.id,

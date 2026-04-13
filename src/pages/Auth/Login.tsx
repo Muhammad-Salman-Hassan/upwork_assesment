@@ -5,6 +5,7 @@ import { login } from "../../store/slices/authSlice";
 import { authService } from "../../services/authService";
 import { ROUTES } from "../../routes/routes";
 import logo from "../../assets/logo.png";
+import side_image from "../../assets/side_img.png";
 
 export default function Login() {
   const dispatch = useAppDispatch();
@@ -116,10 +117,9 @@ export default function Login() {
         </form>
       </div>
 
-
-      <div className="w-1/2 bg-gray-200 flex items-center justify-center">
-        <span className="text-5xl font-light text-gray-800 tracking-wide">Image</span>
-      </div>
+<div className="w-1/2 h-screen bg-gray-200 flex items-center justify-center">
+  <img src={side_image} alt="side" className="w-full h-full object-fill" />
+</div>
     </div>
   );
 }

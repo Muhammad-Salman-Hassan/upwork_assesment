@@ -19,6 +19,7 @@ interface WhyProps {
   readonly onImageChange: (sectionIndex: number, path: number[], src: string) => void;
   readonly onSlideImageChange: (sectionIndex: number, slideIndex: number, src: string) => void;
   readonly onReorderSlides: (sectionIndex: number, fromIndex: number, toIndex: number) => void;
+  readonly onDeleteSlide: (sectionIndex: number, slideIndex: number) => void;
   readonly onLinkChange: (sectionIndex: number, path: number[], field: "link_en" | "link_ar", value: string) => void;
   readonly onCtaChange: (sectionIndex: number, path: number[], field: "label_en" | "label_ar" | "link_en" | "link_ar", value: string) => void;
 }
@@ -117,6 +118,7 @@ export default function Why({
   onImageChange,
   onSlideImageChange,
   onReorderSlides,
+  onDeleteSlide,
   onLinkChange,
   onCtaChange,
 }: WhyProps) {
@@ -131,6 +133,7 @@ export default function Why({
         sectionIndex={sectionIndex}
         onSlideImageChange={onSlideImageChange}
         onReorderSlides={onReorderSlides}
+        onDeleteSlide={onDeleteSlide}
       />
     );
   }

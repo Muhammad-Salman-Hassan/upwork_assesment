@@ -2,8 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { PageData, PageNode, FrameNode, Language } from "../../types";
 
-// Blank offer card — matches the card structure inside the "Offers" section on the Home page.
-// Structure: card frame → image + bottom bar (name text + View More button)
+
 export const BLANK_OFFER_CARD: FrameNode = {
   key: "",
   type: "frame",
@@ -267,6 +266,24 @@ const pageSlice = createSlice({
       if (!target) return;
       target.sections = [...(target.sections ?? []), section];
     },
+    removeSlide(state, action: PayloadAction<{ sectionIndex: number; slideIndex: number; pageId?: number; subPageId?: number }>) {
+      const { sectionIndex, slideIndex, pageId, subPageId } = action.payload;
+      const target = getTargetPage(state.data, pageId, subPageId);
+      if (!target?.sections) return;
+      const section = target.sections[sectionIndex];
+      if (section?.type !== "slider" || !section.params.slides) return;
+      section.params.slides = section.params.slides.filter((_, i) => i !== slideIndex);
+    },
+    // Appends a blank slide to a slider section
+    addSlide(state, action: PayloadAction<{ sliderSectionIndex: number; pageId?: number; subPageId?: number }>) {
+      const { sliderSectionIndex, pageId, subPageId } = action.payload;
+      const target = getTargetPage(state.data, pageId, subPageId);
+      if (!target?.sections) return;
+      const section = target.sections[sliderSectionIndex];
+      if (section?.type !== "slider") return;
+      const blank = { key: "", type: "slide" as const, styles: {}, params: { alt: "", src_en: "", src_ar: "" } };
+      section.params.slides = [...(section.params.slides ?? []), blank];
+    },
     // Appends a blank offer card into the Offers section's horizontal card row (children[1])
     addOfferCard(state, action: PayloadAction<{ offerSectionIndex: number; card: PageNode; pageId?: number; subPageId?: number }>) {
       const { offerSectionIndex, card, pageId, subPageId } = action.payload;
@@ -293,6 +310,6 @@ const pageSlice = createSlice({
   },
 });
 
-export const { setData, clearData, setLanguage, updateTextField, updateImageSrc, updatePageSections, updateSubPageSections, reorderSlides, updateSlideImage, updateLinkField, updateCtaField, addSection, addOfferCard } =
+export const { setData, clearData, setLanguage, updateTextField, updateImageSrc, updatePageSections, updateSubPageSections, reorderSlides, updateSlideImage, updateLinkField, updateCtaField, addSection, addOfferCard, addSlide, removeSlide } =
   pageSlice.actions;
 export default pageSlice.reducer;

@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { GripVertical, ImageIcon, Upload } from 'lucide-react';
+import { GripVertical, ImageIcon, Upload, Trash2 } from 'lucide-react';
 import { fileService } from '../services/fileService';
 import type { Language, PageNode } from '../types';
 
@@ -9,6 +9,7 @@ interface SliderEditorProps {
   readonly sectionIndex: number;
   readonly onSlideImageChange: (sectionIndex: number, slideIndex: number, src: string) => void;
   readonly onReorderSlides: (sectionIndex: number, fromIndex: number, toIndex: number) => void;
+  readonly onDeleteSlide: (sectionIndex: number, slideIndex: number) => void;
 }
 
 interface SlideCardProps {
@@ -21,6 +22,7 @@ interface SlideCardProps {
   readonly onDrop: (e: React.DragEvent) => void;
   readonly onDragEnd: () => void;
   readonly onImageChange: (src: string) => void;
+  readonly onDelete: () => void;
 }
 
 function SlideCard({
@@ -33,6 +35,7 @@ function SlideCard({
   onDrop,
   onDragEnd,
   onImageChange,
+  onDelete,
 }: SlideCardProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
@@ -137,6 +140,12 @@ function SlideCard({
           <Upload size={12} />
           {uploading ? 'Uploading…' : 'Replace'}
         </button>
+        <button
+          onClick={onDelete}
+          className="flex items-center gap-1 text-xs font-medium px-2.5 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-500 transition-colors flex-shrink-0"
+        >
+          <Trash2 size={12} />
+        </button>
       </div>
     </div>
   );
@@ -148,6 +157,7 @@ export default function SliderEditor({
   sectionIndex,
   onSlideImageChange,
   onReorderSlides,
+  onDeleteSlide,
 }: SliderEditorProps) {
   const dragIndex = useRef<number | null>(null);
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
@@ -204,6 +214,7 @@ export default function SliderEditor({
             onDrop={(e) => handleDrop(e, i)}
             onDragEnd={handleDragEnd}
             onImageChange={(src) => onSlideImageChange(sectionIndex, i, src)}
+            onDelete={() => onDeleteSlide(sectionIndex, i)}
           />
         ))}
       </div>

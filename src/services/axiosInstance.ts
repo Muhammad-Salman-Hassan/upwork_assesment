@@ -14,7 +14,7 @@ axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
     if (token) {
-      config.headers.Authorization = `Basic ${token}`;
+      config.headers.Authorization = `Basic NzokMmEkMTQkUW1QTVNsb2EzTGc2YXVQcC9pdmhrZWhZV3FQcHIxMTZOanJ4Q1dSNzFIM1hNNS54TGw2V3k=`;
     }
     return config;
   },

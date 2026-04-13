@@ -9,6 +9,7 @@ import {
   Settings,
   LogOut,
   ChevronRight,
+  Target,
 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "../hooks/useAppDispatch";
 import { logout } from "../store/slices/authSlice";
@@ -20,9 +21,9 @@ const staticNavItems = [
   { label: "Main dashboard", icon: <LayoutDashboard size={16} />, to: ROUTES.DASHBOARD },
   { label: "Pages Management", icon: <FileText size={16} />, to: ROUTES.PAGES_MANAGEMENT },
   { label: "Announcement", icon: <Megaphone size={16} />, to: ROUTES.ANNOUNCEMENT },
-  { label: "Why Us", icon: <HelpCircle size={16} />, to: ROUTES.WHY_US },
+  { label: "Campaign", icon: <Target size={16} />, to: ROUTES.WHY_US },
   { label: "Offers", icon: <Tag size={16} />, to: ROUTES.OFFERS },
-  { label: "Footer", icon: <AlignLeft size={16} />, to: ROUTES.FOOTER },
+  // { label: "Footer", icon: <AlignLeft size={16} />, to: ROUTES.FOOTER },
   { label: "Settings", icon: <Settings size={16} />, to: ROUTES.SETTINGS },
 ];
 

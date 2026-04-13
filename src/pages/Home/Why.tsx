@@ -5,7 +5,7 @@ import TextField from '../../components/fields/TextField';
 import TextareaField from '../../components/fields/TextareaField';
 import ImageField from '../../components/fields/ImageField';
 import LinkField from '../../components/fields/LinkField';
-import PersonCardEditor from '../../components/PersonCardEditor';
+import PersonCardEditor, { type CardEntry, getCardImage, getCardName, getCardPosition } from '../../components/PersonCardEditor';
 import SliderEditor from '../../components/SliderEditor';
 
 const PERSON_CARD_SLUGS = new Set(['vice-word', 'board-of-directors', 'management-team']);
@@ -141,46 +141,83 @@ export default function Why({
   const children: PageNode[] =
     section.type === 'frame' ? section.params.children : [];
 
+  const allCardEntries: CardEntry[] = showPersonCards
+    ? children.flatMap((child, childIndex) => {
+        const asFrame = child.type === 'frame' ? child : null;
+        if (!asFrame) return [];
+        const isDirect: boolean = isPersonCard(asFrame);
+        const isRow: boolean = isPersonCardRow(asFrame);
+        if (isDirect) {
+      
+          return [{
+            card: asFrame,
+            imgPath:  [childIndex, 0],
+            namePath: [childIndex, 1, 0],
+            posPath:  [childIndex, 1, 1],
+          }];
+        }
+        if (isRow) {
+         
+          return (asFrame.params.children as FrameNode[]).map((card, cardIdx) => ({
+            card,
+            imgPath:  [childIndex, cardIdx, 0],
+            namePath: [childIndex, cardIdx, 1, 0],
+            posPath:  [childIndex, cardIdx, 1, 1],
+          }));
+        }
+        return [];
+      })
+    : [];
+
   return (
     <div className='flex flex-col gap-6'>
-      {children.map((child, childIndex) => {
-
-        if (showPersonCards && isPersonCardRow(child)) {
-          return (
-            <div key={child.id ?? childIndex} className='flex flex-col gap-3'>
-              {child.params.children.map((card, cardIdx) => (
-                <PersonCardEditor
-                  key={card.id ?? cardIdx}
-                  card={card as FrameNode}
-                  basePath={[childIndex, cardIdx]}
-                  sectionIndex={sectionIndex}
-                  language={language}
-                  onTextChange={onTextChange}
-                  onImageChange={onImageChange}
-                />
-              ))}
+      {(showPersonCards && allCardEntries.length === 1) && (() => {
+        const { card, imgPath, namePath, posPath } = allCardEntries[0];
+        const langLabel = language.toUpperCase();
+        const name     = getCardName(card, language);
+        const position = getCardPosition(card, language);
+        const src      = getCardImage(card, language);
+        return (
+          <div className='flex flex-col bg-white rounded-lg shadow-sm border border-gray-200 p-4 gap-5'>
+            {(name || position) && (
+              <div className="flex flex-col gap-0.5 border-b border-gray-100 pb-3">
+                {name     && <p className="text-sm font-semibold text-gray-700">{name}</p>}
+                {position && <p className="text-xs text-gray-400">{position}</p>}
+              </div>
+            )}
+            <div>
+              <p className="text-xs font-medium text-gray-500 mb-2">Photo ({langLabel})</p>
+              <ImageField src={src} onImageChange={(val) => onImageChange(sectionIndex, imgPath, val)} />
             </div>
-          );
-        }
+            <TextField label={`Name (${langLabel})`}     value={name}     onChange={(val) => onTextChange(sectionIndex, namePath, val)} />
+            <TextField label={`Position (${langLabel})`} value={position} onChange={(val) => onTextChange(sectionIndex, posPath,  val)} />
+          </div>
+        );
+      })()}
+      {children.map((child, childIndex) => {
+        const asFrame = child.type === 'frame' ? child : null;
+
+        const isCardRow: boolean = asFrame !== null && isPersonCardRow(asFrame);
+        const isDirectCard: boolean = asFrame !== null && isPersonCard(asFrame);
+        if (isCardRow || isDirectCard) return null;
 
         const editableNodes = getChildEditableNodes(child, childIndex);
         const frameLinkField = language === 'en' ? 'link_en' : 'link_ar';
 
-        const frameHasLink = child.type === 'frame' &&
-          (child.params.link_en !== undefined || child.params.link_ar !== undefined);
-        const frameLinkValue = frameHasLink && child.type === 'frame'
-          ? ((child.params[frameLinkField] as string) ?? '')
+        const frameHasLink = asFrame !== null &&
+          (asFrame.params.link_en !== undefined || asFrame.params.link_ar !== undefined);
+        const frameLinkValue = frameHasLink && asFrame
+          ? ((asFrame.params[frameLinkField] as string) ?? '')
           : '';
 
-
-        const nestedCardLinks = child.type === 'frame'
-          ? child.params.children
+        const nestedCardLinks = asFrame
+          ? asFrame.params.children
             .map((grandchild, gcIdx) => {
               if (
                 grandchild.type !== 'frame' ||
                 (grandchild.params.link_en === undefined && grandchild.params.link_ar === undefined)
               ) return null;
-              const titleNode = grandchild.params.children.find((n) => n.type === 'text');
+              const titleNode = grandchild.params.children.find((n: PageNode) => n.type === 'text');
               const titleContent = titleNode?.type === 'text' ? titleNode.params : null;
               const titleLangValue = language === 'en' ? titleContent?.content_en : titleContent?.content_ar;
               const title = titleLangValue ?? '';
@@ -229,6 +266,16 @@ export default function Why({
           </div>
         );
       })}
+      
+      {showPersonCards && allCardEntries.length > 1 && (
+        <PersonCardEditor
+          cards={allCardEntries}
+          sectionIndex={sectionIndex}
+          language={language}
+          onTextChange={onTextChange}
+          onImageChange={onImageChange}
+        />
+      )}
     </div>
   );
 }

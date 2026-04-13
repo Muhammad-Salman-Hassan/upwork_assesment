@@ -97,12 +97,12 @@ function getChildEditableNodes(child: PageNode, childIndex: number): EditableNod
 
 function isPersonCard(node: PageNode): node is FrameNode {
   if (node.type !== 'frame') return false;
-  
+
   const kids = node.params.children;
   return kids.length >= 2 && kids[0].type === 'image' && kids[1].type === 'frame';
 }
 
-// A person card row: a frame whose every child is a person card
+
 function isPersonCardRow(node: PageNode): node is FrameNode {
   if (node.type !== 'frame') return false;
   const kids = node.params.children;
@@ -144,7 +144,7 @@ export default function Why({
   return (
     <div className='flex flex-col gap-6'>
       {children.map((child, childIndex) => {
-       
+
         if (showPersonCards && isPersonCardRow(child)) {
           return (
             <div key={child.id ?? childIndex} className='flex flex-col gap-3'>
@@ -166,32 +166,31 @@ export default function Why({
         const editableNodes = getChildEditableNodes(child, childIndex);
         const frameLinkField = language === 'en' ? 'link_en' : 'link_ar';
 
-        // Direct child frame has a link
         const frameHasLink = child.type === 'frame' &&
           (child.params.link_en !== undefined || child.params.link_ar !== undefined);
         const frameLinkValue = frameHasLink && child.type === 'frame'
           ? ((child.params[frameLinkField] as string) ?? '')
           : '';
 
-        // Nested card frames (grandchildren) that each have their own link
+
         const nestedCardLinks = child.type === 'frame'
           ? child.params.children
-              .map((grandchild, gcIdx) => {
-                if (
-                  grandchild.type !== 'frame' ||
-                  (grandchild.params.link_en === undefined && grandchild.params.link_ar === undefined)
-                ) return null;
-                const titleNode = grandchild.params.children.find((n) => n.type === 'text');
-                const titleContent = titleNode?.type === 'text' ? titleNode.params : null;
-                const titleLangValue = language === 'en' ? titleContent?.content_en : titleContent?.content_ar;
-                const title = titleLangValue ?? '';
-                return {
-                  path: [childIndex, gcIdx] as number[],
-                  value: (grandchild.params[frameLinkField] as string) ?? '',
-                  label: title ? `${title} Link` : `Card ${gcIdx + 1} Link`,
-                };
-              })
-              .filter(Boolean)
+            .map((grandchild, gcIdx) => {
+              if (
+                grandchild.type !== 'frame' ||
+                (grandchild.params.link_en === undefined && grandchild.params.link_ar === undefined)
+              ) return null;
+              const titleNode = grandchild.params.children.find((n) => n.type === 'text');
+              const titleContent = titleNode?.type === 'text' ? titleNode.params : null;
+              const titleLangValue = language === 'en' ? titleContent?.content_en : titleContent?.content_ar;
+              const title = titleLangValue ?? '';
+              return {
+                path: [childIndex, gcIdx] as number[],
+                value: (grandchild.params[frameLinkField] as string) ?? '',
+                label: title ? `${title} Link` : `Card ${gcIdx + 1} Link`,
+              };
+            })
+            .filter(Boolean)
           : [];
 
         return (

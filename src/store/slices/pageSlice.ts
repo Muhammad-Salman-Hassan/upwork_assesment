@@ -295,6 +295,17 @@ const pageSlice = createSlice({
       if (cardRow?.type !== "frame") return;
       cardRow.params.children = [...cardRow.params.children, card];
     },
+    // Removes an offer card from the Offers section's card row (children[1])
+    removeOfferCard(state, action: PayloadAction<{ offerSectionIndex: number; cardIndex: number; pageId?: number; subPageId?: number }>) {
+      const { offerSectionIndex, cardIndex, pageId, subPageId } = action.payload;
+      const target = getTargetPage(state.data, pageId, subPageId);
+      if (!target?.sections) return;
+      const offerSection = target.sections[offerSectionIndex];
+      if (offerSection?.type !== "frame") return;
+      const cardRow = offerSection.params.children[1];
+      if (cardRow?.type !== "frame") return;
+      cardRow.params.children = cardRow.params.children.filter((_, i) => i !== cardIndex);
+    },
     reorderSlides(state, action: PayloadAction<ReorderSlidesPayload>) {
       const { sectionIndex, fromIndex, toIndex, pageId, subPageId } = action.payload;
       if (fromIndex === toIndex) return;
@@ -310,6 +321,6 @@ const pageSlice = createSlice({
   },
 });
 
-export const { setData, clearData, setLanguage, updateTextField, updateImageSrc, updatePageSections, updateSubPageSections, reorderSlides, updateSlideImage, updateLinkField, updateCtaField, addSection, addOfferCard, addSlide, removeSlide } =
+export const { setData, clearData, setLanguage, updateTextField, updateImageSrc, updatePageSections, updateSubPageSections, reorderSlides, updateSlideImage, updateLinkField, updateCtaField, addSection, addOfferCard, removeOfferCard, addSlide, removeSlide } =
   pageSlice.actions;
 export default pageSlice.reducer;

@@ -26,26 +26,17 @@ interface SlideCardProps {
 }
 
 function SlideCard({
-  slide,
-  index,
-  language,
-  isDragOver,
-  onDragStart,
-  onDragOver,
-  onDrop,
-  onDragEnd,
-  onImageChange,
-  onDelete,
+  slide, index, language, isDragOver,
+  onDragStart, onDragOver, onDrop, onDragEnd,
+  onImageChange, onDelete,
 }: SlideCardProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
-  // Only used during upload for optimistic preview — cleared on completion
   const [uploadPreview, setUploadPreview] = useState<string | null>(null);
   const [hasError, setHasError] = useState(false);
 
   const p = slide.params as { alt?: string; src_en?: string; src_ar?: string; src?: string };
   const label = p.alt || `Slide ${index + 1}`;
-  // Derived reactively from Redux state — updates correctly on language switch
   const currentSrc = (language === 'en' ? p.src_en : p.src_ar) ?? p.src ?? '';
   const displaySrc = uploadPreview ?? currentSrc;
 
@@ -68,7 +59,7 @@ function SlideCard({
   };
 
   return (
-    <div
+    <li
       draggable
       onDragStart={onDragStart}
       onDragOver={onDragOver}
@@ -81,7 +72,7 @@ function SlideCard({
           : 'border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300',
       ].join(' ')}
     >
-      {/* Thumbnail area */}
+     
       <div className="relative w-full aspect-video bg-gray-100 overflow-hidden">
         {!hasError && displaySrc ? (
           <img
@@ -97,7 +88,6 @@ function SlideCard({
           </div>
         )}
 
-        {/* Drag-over overlay */}
         {isDragOver && (
           <div className="absolute inset-0 bg-blue-500/10 flex items-center justify-center">
             <span className="text-blue-600 text-xs font-semibold bg-white/90 px-2 py-1 rounded-full">
@@ -106,12 +96,10 @@ function SlideCard({
           </div>
         )}
 
-        {/* Position badge — top left */}
         <span className="absolute top-2 left-2 inline-flex items-center justify-center w-6 h-6 rounded-full bg-black/50 text-white text-xs font-bold backdrop-blur-sm">
           {index + 1}
         </span>
 
-        {/* Grip — top right */}
         <span
           aria-label="Drag to reorder"
           role="img"
@@ -121,17 +109,10 @@ function SlideCard({
         </span>
       </div>
 
-      {/* Footer */}
+    
       <div className="flex items-center justify-between gap-2 px-3 py-2.5 bg-white">
         <span className="text-xs font-medium text-gray-600 truncate flex-1">{label}</span>
-
-        <input
-          ref={inputRef}
-          type="file"
-          accept="image/*"
-          className="hidden"
-          onChange={handleFile}
-        />
+        <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleFile} />
         <button
           onClick={() => inputRef.current?.click()}
           disabled={uploading}
@@ -147,32 +128,22 @@ function SlideCard({
           <Trash2 size={12} />
         </button>
       </div>
-    </div>
+    </li>
   );
 }
 
 export default function SliderEditor({
-  slides,
-  language,
-  sectionIndex,
-  onSlideImageChange,
-  onReorderSlides,
-  onDeleteSlide,
+  slides, language, sectionIndex,
+  onSlideImageChange, onReorderSlides, onDeleteSlide,
 }: SliderEditorProps) {
   const dragIndex = useRef<number | null>(null);
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
 
-  const handleDragStart = (index: number) => {
-    dragIndex.current = index;
-  };
-
+  const handleDragStart = (index: number) => { dragIndex.current = index; };
   const handleDragOver = (e: React.DragEvent, index: number) => {
     e.preventDefault();
-    if (dragIndex.current !== null && dragIndex.current !== index) {
-      setDragOverIndex(index);
-    }
+    if (dragIndex.current !== null && dragIndex.current !== index) setDragOverIndex(index);
   };
-
   const handleDrop = (e: React.DragEvent, index: number) => {
     e.preventDefault();
     if (dragIndex.current !== null && dragIndex.current !== index) {
@@ -181,15 +152,10 @@ export default function SliderEditor({
     dragIndex.current = null;
     setDragOverIndex(null);
   };
-
-  const handleDragEnd = () => {
-    dragIndex.current = null;
-    setDragOverIndex(null);
-  };
+  const handleDragEnd = () => { dragIndex.current = null; setDragOverIndex(null); };
 
   return (
     <div className="flex flex-col gap-4 mb-2 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-0.5">
           <span className="text-sm font-semibold text-gray-800">Slider Images</span>
@@ -200,8 +166,7 @@ export default function SliderEditor({
         </span>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-3 gap-3">
+      <ul className="grid grid-cols-3 gap-3 list-none p-0 m-0">
         {slides.map((slide, i) => (
           <SlideCard
             key={slide.id ?? i}
@@ -217,7 +182,7 @@ export default function SliderEditor({
             onDelete={() => onDeleteSlide(sectionIndex, i)}
           />
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

@@ -1,5 +1,8 @@
 import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { updatePageSections, updateSubPageSections, reorderSlides, updateSlideImage, updateLinkField, updateCtaField, removeSlide } from "../../store/slices/pageSlice";
+import {
+  updatePageSections, updateSubPageSections,
+  reorderSlides, updateSlideImage, updateLinkField, updateCtaField, removeSlide,
+} from "../../store/slices/pageSlice";
 import Loader from "../../components/Loader";
 import BranchesTab from "../../components/BranchesTab";
 import FAQTab from "../../components/FAQTab";
@@ -7,6 +10,10 @@ import FinancialReportsTab from "../../components/FinancialReportsTab";
 import NewsTab from "../../components/NewsTab";
 import DisclosureTab from "../../components/DisclosureTab";
 import Why from "./Why";
+import SliderEditor from "../../components/SliderEditor";
+import WhyCFCEditor from "./WhyCFCEditor";
+import CalculateLoanEditor from "./CalculateLoanEditor";
+import OffersSectionEditor from "./OffersSectionEditor";
 import type { Language, PageData, PageNode } from "../../types";
 
 interface ContentPanelProps {
@@ -20,11 +27,113 @@ interface ContentPanelProps {
   readonly onImageChange: (si: number, path: number[], src: string, pageId?: number, subPageId?: number) => void;
 }
 
+
+function buildHandlers(
+  language: Language,
+  dispatch: ReturnType<typeof useAppDispatch>,
+  onTextChange: ContentPanelProps["onTextChange"],
+  onImageChange: ContentPanelProps["onImageChange"],
+  pi?: number,
+  spi?: number,
+) {
+  return {
+    language,
+    onTextChange: (si: number, path: number[], val: string) => onTextChange(si, path, val, pi, spi),
+    onImageChange: (si: number, path: number[], src: string) => onImageChange(si, path, src, pi, spi),
+    onSlideImageChange: (si: number, slideIndex: number, src: string) =>
+      dispatch(updateSlideImage({ sectionIndex: si, slideIndex, src, pageId: pi, subPageId: spi })),
+    onReorderSlides: (si: number, from: number, to: number) =>
+      dispatch(reorderSlides({ sectionIndex: si, fromIndex: from, toIndex: to, pageId: pi, subPageId: spi })),
+    onDeleteSlide: (si: number, slideIndex: number) =>
+      dispatch(removeSlide({ sectionIndex: si, slideIndex, pageId: pi, subPageId: spi })),
+    onLinkChange: (si: number, path: number[], field: "link_en" | "link_ar", val: string) =>
+      dispatch(updateLinkField({ sectionIndex: si, path, field, value: val, pageId: pi, subPageId: spi })),
+    onCtaChange: (si: number, path: number[], field: "label_en" | "label_ar" | "link_en" | "link_ar", val: string) =>
+      dispatch(updateCtaField({ sectionIndex: si, path, field, value: val, pageId: pi, subPageId: spi })),
+  };
+}
+
+
+interface SectionEditorProps {
+  readonly section: PageNode;
+  readonly sectionIndex: number;
+  readonly language: Language;
+  readonly pageId?: number;
+  readonly subPageId?: number;
+  readonly h: ReturnType<typeof buildHandlers>;
+}
+
+function SectionEditor({ section, sectionIndex, language, pageId, subPageId, h }: SectionEditorProps) {
+
+  if (section.type === "slider") {
+    return (
+      <SliderEditor
+        slides={section.params.slides ?? []}
+        language={language}
+        sectionIndex={sectionIndex}
+        onSlideImageChange={h.onSlideImageChange}
+        onReorderSlides={h.onReorderSlides}
+        onDeleteSlide={h.onDeleteSlide}
+      />
+    );
+  }
+
+ 
+  if (section.key === "Calculate Your Loan") {
+    return (
+      <CalculateLoanEditor
+        sectionIndex={sectionIndex}
+        section={section}
+        language={language}
+        onTextChange={h.onTextChange}
+        onImageChange={h.onImageChange}
+        onLinkChange={h.onLinkChange}
+      />
+    );
+  }
+
+ 
+  if (section.key === "Why CFC?") {
+    return (
+      <WhyCFCEditor
+        sectionIndex={sectionIndex}
+        section={section}
+        language={language}
+        onTextChange={h.onTextChange}
+        onImageChange={h.onImageChange}
+        onLinkChange={h.onLinkChange}
+      />
+    );
+  }
+
+
+  if (section.key === "Offers") {
+    return (
+      <OffersSectionEditor
+        sectionIndex={sectionIndex}
+        section={section}
+        language={language}
+        pageId={pageId}
+        subPageId={subPageId}
+        onTextChange={h.onTextChange}
+        onImageChange={h.onImageChange}
+        onCtaChange={h.onCtaChange}
+      />
+    );
+  }
+
+
+  return <Why sectionIndex={sectionIndex} section={section} slug={undefined} {...h} />;
+}
+
+
 export default function ContentPanel({
   loading, activePage, activeSubPage, sections, activeSectionIndex, language,
   onTextChange, onImageChange,
 }: ContentPanelProps) {
   const dispatch = useAppDispatch();
+  const pageId = activePage?.id;
+  const subPageId = activeSubPage?.id;
 
   function onActivePageSections(updatedSections: PageNode[]) {
     if (activePage?.id) {
@@ -38,48 +147,23 @@ export default function ContentPanel({
     }
   }
 
-  const pageId = activePage?.id;
-  const subPageId = activeSubPage?.id;
-
-  function makeWhyProps(pi?: number, spi?: number) {
-    return {
-      language,
-      onTextChange: (si: number, path: number[], val: string) => onTextChange(si, path, val, pi, spi),
-      onImageChange: (si: number, path: number[], src: string) => onImageChange(si, path, src, pi, spi),
-      onSlideImageChange: (si: number, slideIndex: number, src: string) =>
-        dispatch(updateSlideImage({ sectionIndex: si, slideIndex, src, pageId: pi, subPageId: spi })),
-      onReorderSlides: (si: number, from: number, to: number) =>
-        dispatch(reorderSlides({ sectionIndex: si, fromIndex: from, toIndex: to, pageId: pi, subPageId: spi })),
-      onDeleteSlide: (si: number, slideIndex: number) =>
-        dispatch(removeSlide({ sectionIndex: si, slideIndex, pageId: pi, subPageId: spi })),
-      onLinkChange: (si: number, path: number[], field: "link_en" | "link_ar", val: string) =>
-        dispatch(updateLinkField({ sectionIndex: si, path, field, value: val, pageId: pi, subPageId: spi })),
-      onCtaChange: (si: number, path: number[], field: "label_en" | "label_ar" | "link_en" | "link_ar", val: string) =>
-        dispatch(updateCtaField({ sectionIndex: si, path, field, value: val, pageId: pi, subPageId: spi })),
-    };
-  }
-
   if (loading) return <Loader />;
 
   if (activePage?.slug === "branches")
     return <BranchesTab pageData={activePage} language={language} onSectionsChange={onActivePageSections} />;
-
   if (activePage?.slug === "faq")
     return <FAQTab pageData={activePage} language={language} onSectionsChange={onActivePageSections} />;
-
   if (activePage?.slug === "financial-reports")
     return <FinancialReportsTab pageData={activePage} language={language} onSectionsChange={onActivePageSections} />;
-
   if (activePage?.slug === "news")
     return <NewsTab pageData={activePage} language={language} onSectionsChange={onActivePageSections} />;
-
   if (activeSubPage?.slug === "disclosure")
     return <DisclosureTab pageData={activeSubPage} language={language} onSectionsChange={onSubPageSections} />;
 
   if (sections.length === 0)
     return <div className="text-sm text-gray-400 mt-8 text-center">Select a sub-page from the right sidebar to edit its content.</div>;
 
-  // Root page (no sub-pages) — show one section at a time
+ 
   if (!activePage) {
     if (activeSectionIndex === null) {
       return (
@@ -92,10 +176,21 @@ export default function ContentPanel({
     }
     const section = sections[activeSectionIndex];
     if (!section) return null;
-    return <Why sectionIndex={activeSectionIndex} section={section} slug={undefined} {...makeWhyProps()} />;
+    const h = buildHandlers(language, dispatch, onTextChange, onImageChange);
+    return (
+      <SectionEditor
+        section={section}
+        sectionIndex={activeSectionIndex}
+        language={language}
+        pageId={pageId}
+        subPageId={subPageId}
+        h={h}
+      />
+    );
   }
 
-  // Has sub-pages — render all sections
+ 
+  const h = buildHandlers(language, dispatch, onTextChange, onImageChange, pageId, subPageId);
   return (
     <>
       {sections.map((section, index) => (
@@ -104,7 +199,7 @@ export default function ContentPanel({
           sectionIndex={index}
           section={section}
           slug={activeSubPage?.slug ?? activePage?.slug}
-          {...makeWhyProps(pageId, subPageId)}
+          {...h}
         />
       ))}
     </>

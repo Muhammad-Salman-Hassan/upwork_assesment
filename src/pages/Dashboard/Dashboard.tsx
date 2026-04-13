@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FileText, Megaphone, Tag, Settings, Lightbulb } from "lucide-react";
 import Layout from "../../components/Layout";
 import NavCard from "./NavCard";
 import QuickActionCard from "./QuickActionCard";
+import AdsModal from "./AdsModal";
+import DisclosureModal from "./DisclosureModal";
 import { ROUTES } from "../../routes/routes";
 
 const navCards = [
@@ -10,7 +13,7 @@ const navCards = [
   { label: "Announcement", icon: <Megaphone size={22} />, to: ROUTES.ANNOUNCEMENT },
   { label: "Offers", icon: <Tag size={22} />, to: ROUTES.OFFERS },
   { label: "Theme", icon: <Settings size={22} />, to: ROUTES.SETTINGS },
-  { label: "Ads", icon: <Lightbulb size={22} />, to: "#" },
+  { label: "Ads", icon: <Lightbulb size={22} />, to: null },
 ];
 
 const quickActions = [
@@ -24,6 +27,16 @@ const quickActions = [
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const [adsOpen, setAdsOpen] = useState(false);
+  const [disclosureOpen, setDisclosureOpen] = useState(false);
+
+  function handleNavCard(card: { to: string | null; label: string }) {
+    if (card.label === "Ads") {
+      setAdsOpen(true);
+    } else if (card.to) {
+      navigate(card.to);
+    }
+  }
 
   return (
     <Layout>
@@ -38,7 +51,7 @@ export default function Dashboard() {
             key={card.label}
             label={card.label}
             icon={card.icon}
-            onClick={() => navigate(card.to)}
+            onClick={() => handleNavCard(card)}
           />
         ))}
       </div>
@@ -47,10 +60,17 @@ export default function Dashboard() {
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h2>
         <div className="grid grid-cols-3 gap-4">
           {quickActions.map((action) => (
-            <QuickActionCard key={action} label={action} />
+            <QuickActionCard
+              key={action}
+              label={action}
+              onClick={action === "Latest Disclosure" ? () => setDisclosureOpen(true) : undefined}
+            />
           ))}
         </div>
       </div>
+
+      {adsOpen && <AdsModal onClose={() => setAdsOpen(false)} />}
+      {disclosureOpen && <DisclosureModal onClose={() => setDisclosureOpen(false)} />}
     </Layout>
   );
 }

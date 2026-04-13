@@ -35,7 +35,6 @@ interface FormFields {
   ctaLinkAr: string;
 }
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function buildSlug(title: string): string {
   return title
@@ -205,7 +204,6 @@ function buildPayload(f: FormFields) {
   };
 }
 
-// ─── Sub-components ───────────────────────────────────────────────────────────
 
 const inputCls =
   "w-full border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-800 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-400 transition-colors";
@@ -239,7 +237,6 @@ function SectionCard({ title, children }: { title: string; children: React.React
   );
 }
 
-// ─── Right Bar ────────────────────────────────────────────────────────────────
 
 function CreateRightBar({
   saving, onSave, titleEn, slug,
@@ -315,7 +312,6 @@ function CreateRightBar({
   );
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function CreateOffer() {
   const navigate = useNavigate();
@@ -393,7 +389,7 @@ export default function CreateOffer() {
   return (
     <>
       <Layout rightBar={rightBar}>
-        {/* Header */}
+       
         <div className="flex items-center justify-between mb-3">
           <span className="text-sm font-medium text-blue-500">Create Offer Page</span>
           <button
@@ -404,7 +400,7 @@ export default function CreateOffer() {
           </button>
         </div>
 
-        {/* Language tabs */}
+      
         <div className="flex gap-2 mb-5 border-b border-gray-200">
           {(["en", "ar"] as Lang[]).map((l) => (
             <button
@@ -421,10 +417,10 @@ export default function CreateOffer() {
           ))}
         </div>
 
-        {/* Form sections */}
+       
         <div className="flex flex-col gap-4">
 
-          {/* Page Identity */}
+   
           <SectionCard title="Page Identity">
             <Field label="Title (EN)" required>
               <input
@@ -445,7 +441,6 @@ export default function CreateOffer() {
             </Field>
           </SectionCard>
 
-          {/* Banner Image */}
           <SectionCard title="Banner Image">
             <div className="col-span-1 flex flex-col gap-1">
               <span className="text-xs font-medium text-gray-500">Banner (EN)</span>
@@ -463,7 +458,7 @@ export default function CreateOffer() {
             </div>
           </SectionCard>
 
-          {/* Heading & Description */}
+        
           <SectionCard title="Heading & Description">
             <Field label={`Heading (${lang.toUpperCase()})`}>
               <input
@@ -485,7 +480,7 @@ export default function CreateOffer() {
             </Field>
           </SectionCard>
 
-          {/* Info Bar */}
+      
           <SectionCard title="Info Bar">
             <Field label={`Bar Title (${lang.toUpperCase()})`}>
               <input
@@ -516,7 +511,7 @@ export default function CreateOffer() {
             </Field>
           </SectionCard>
 
-          {/* CTA Button */}
+         
           <SectionCard title="CTA Button">
             <Field label={`Label (${lang.toUpperCase()})`}>
               <input

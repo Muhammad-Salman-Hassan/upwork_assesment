@@ -5,7 +5,7 @@ import { login } from "../../store/slices/authSlice";
 import { authService } from "../../services/authService";
 import { ROUTES } from "../../routes/routes";
 import logo from "../../assets/logo.png";
-import side_image from "../../assets/side_img.png";
+import side_image from "../../assets/loginimg.png";
 
 export default function Login() {
   const dispatch = useAppDispatch();

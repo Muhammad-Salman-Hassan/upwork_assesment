@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { fileService } from "../../services/fileService";
-import { ImageIcon, Upload, RefreshCw } from "lucide-react";
+import { ImageIcon, RefreshCw } from "lucide-react";
 
 interface ImageFieldProps {
   readonly src: string;
@@ -60,11 +60,7 @@ export default function ImageField({ src, onImageChange }: ImageFieldProps) {
     return dragOver ? "bg-blue-100" : "bg-gray-100 group-hover:bg-blue-100";
   }
 
-  function uploadButtonLabel() {
-    if (uploading) return "Uploading…";
-    if (hasImage) return "Change Image";
-    return "Upload Image";
-  }
+
 
   return (
     <div className="flex flex-col gap-2">

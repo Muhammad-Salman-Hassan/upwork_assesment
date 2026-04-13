@@ -457,7 +457,7 @@ export default function DisclosureTab({
           
                 <div className="flex items-center gap-3 shrink-0">
                   <div className="flex items-center gap-1.5">
-                    <span className="inline-flex items-center justify-center w-7 h-7 rounded bg-red-500 text-white text-[8px] font-bold shrink-0">
+                    <span onClick={() => window.open(link, "_blank")}  className="inline-flex items-center justify-center w-7 h-7 rounded bg-red-500 text-white text-[8px] font-bold shrink-0 cursor-pointer" >
                       PDF
                     </span>
                     <span className="text-sm text-gray-600 max-w-[120px] truncate hidden sm:block">

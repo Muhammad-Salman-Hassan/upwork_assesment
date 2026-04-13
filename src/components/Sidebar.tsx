@@ -1,21 +1,21 @@
-import { NavLink, useNavigate, useParams, useMatch } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   FileText,
   Megaphone,
-  HelpCircle,
+
   Tag,
-  AlignLeft,
+
   Settings,
   LogOut,
-  ChevronRight,
+
   Target,
 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "../hooks/useAppDispatch";
 import { logout } from "../store/slices/authSlice";
 import { ROUTES } from "../routes/routes";
 import logo from "../assets/logo.png";
-import type { NavItem } from "../types/nav";
+
 
 const staticNavItems = [
   { label: "Main dashboard", icon: <LayoutDashboard size={16} />, to: ROUTES.DASHBOARD },
@@ -27,28 +27,14 @@ const staticNavItems = [
   { label: "Settings", icon: <Settings size={16} />, to: ROUTES.SETTINGS },
 ];
 
-function findTopLevelNavItem(items: NavItem[], id: number): NavItem | undefined {
-  return items.find(
-    (item) =>
-      item.id === id ||
-      item.children.some((child) => child.id === id)
-  );
-}
+
 
 export default function Sidebar() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.auth.user);
-  const navItems = useAppSelector((state) => state.nav.items);
-
-  const pageEditorMatch = useMatch(ROUTES.PAGE_EDITOR);
-  const activeNavId = pageEditorMatch?.params?.navId
-    ? Number(pageEditorMatch.params.navId)
-    : null;
-
-  const activeTopLevel = activeNavId
-    ? findTopLevelNavItem(navItems, activeNavId)
-    : null;
+  
+ 
 
   const handleLogout = () => {
     dispatch(logout());
@@ -72,10 +58,9 @@ export default function Sidebar() {
             to={item.to}
             end={item.to === ROUTES.DASHBOARD}
             className={({ isActive }) =>
-              `flex items-center gap-2 px-3 py-2 rounded text-sm transition-colors w-full ${
-                isActive
-                  ? "text-blue-500 font-medium"
-                  : "text-gray-500 hover:text-gray-800 hover:bg-gray-50"
+              `flex items-center gap-2 px-3 py-2 rounded text-sm transition-colors w-full ${isActive
+                ? "text-blue-500 font-medium"
+                : "text-gray-500 hover:text-gray-800 hover:bg-gray-50"
               }`
             }
           >

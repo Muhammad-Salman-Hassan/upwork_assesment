@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Plus } from "lucide-react";
 import Layout from "../../components/Layout";
 import { pageService } from "../../services/pageService";
-import { ROUTES } from "../../routes/routes";
+// import { ROUTES } from "../../routes/routes";
 import type { PageData } from "../../types";
 
 export default function Offers() {
@@ -42,7 +42,7 @@ export default function Offers() {
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-800">Offers</h2>
         <button
-          onClick={() => navigate(ROUTES.OFFERS_CREATE)}
+          // onClick={() => navigate(ROUTES.OFFERS_CREATE)}
           className="flex items-center gap-1.5 text-sm bg-blue-500 hover:bg-blue-600 text-white px-3 py-1.5 rounded-lg transition-colors"
         >
           <Plus size={14} />

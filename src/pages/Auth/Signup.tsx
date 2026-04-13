@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { login } from "../../store/slices/authSlice";
+// import { useAppDispatch } from "../../hooks/useAppDispatch";
+// import { login } from "../../store/slices/authSlice";
 import { ROUTES } from "../../routes/routes";
 
 export default function Signup() {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [form, setForm] = useState({ name: "", email: "", password: "" });
 
@@ -15,7 +15,7 @@ export default function Signup() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(login({ name: form.name, email: form.email }));
+    // dispatch(login({ username: form.name, email: form.email }));
     navigate(ROUTES.DASHBOARD);
   };
 
